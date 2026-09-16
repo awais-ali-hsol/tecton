@@ -50,7 +50,7 @@ export default function Site() {
     const values = new FormData(event.currentTarget);
     const subject = encodeURIComponent(`Project enquiry from ${values.get("name")}`);
     const body = encodeURIComponent(`Name: ${values.get("name")}\nEmail: ${values.get("email")}\nCompany: ${values.get("company")}\n\n${values.get("message")}`);
-    window.location.href = `mailto:hello@tectonsolutions.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@tectonsolutions.com?subject=${subject}&body=${body}`;
     setFormSent(true);
   };
 
