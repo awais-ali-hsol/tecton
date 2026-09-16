@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/data";
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: "https://tectonsolutions.com", lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
