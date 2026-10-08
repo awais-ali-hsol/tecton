@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   description: "Tecton Solutions builds modern software, web applications, mobile apps, AI solutions, SaaS platforms and scalable digital products for growing businesses.",
   keywords: ["software development", "AI solutions", "SaaS", "web development", "Tecton Solutions"],
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png", sizes: "1254x1254" }],
-    shortcut: "/icon.png",
+    icon: [{ url: "/tecton-favicon.svg?v=2", type: "image/svg+xml", sizes: "any" }],
+    shortcut: "/tecton-favicon.svg?v=2",
     apple: "/icon.png",
   },
   openGraph: { title: "Tecton Solutions | Ideas / Technology / Real Solutions", description: "Modern digital products for growing businesses.", type: "website" },
