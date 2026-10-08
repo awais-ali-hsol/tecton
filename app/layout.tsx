@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./hero.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
   title: "Tecton Solutions | Ideas / Technology / Real Solutions",
   description: "Tecton Solutions builds modern software, web applications, mobile apps, AI solutions, SaaS platforms and scalable digital products for growing businesses.",
   keywords: ["software development", "AI solutions", "SaaS", "web development", "Tecton Solutions"],
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "1254x1254" }],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: { title: "Tecton Solutions | Ideas / Technology / Real Solutions", description: "Modern digital products for growing businesses.", type: "website" },
   twitter: { card: "summary_large_image", title: "Tecton Solutions", description: "Ideas / technology / real solutions." },
 };
