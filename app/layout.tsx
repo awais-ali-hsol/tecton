@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "Tecton Solutions builds modern software, web applications, mobile apps, AI solutions, SaaS platforms and scalable digital products for growing businesses.",
   keywords: ["software development", "AI solutions", "SaaS", "web development", "Tecton Solutions"],
   icons: {
-    icon: [{ url: "/tecton-favicon.png", type: "image/svg+xml", sizes: "any" }],
+    icon: [{ url: "/tecton-favicon.png", type: "image/png", sizes: "1254x1254" }],
     shortcut: "/tecton-favicon.png",
     apple: "/icon.png",
   },
