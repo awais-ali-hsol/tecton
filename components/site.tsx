@@ -205,11 +205,17 @@ function Navbar() {
   const scrolled = useScrolled();
   const [open, setOpen] = useState(false);
 
-  const navLinks = ["Services", "Work", "About", "Blog", "Contact"];
+  const navLinks: { label: string; href: string }[] = [
+    { label: "Services", href: "#services" },
+    { label: "Work", href: "/work" },
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "#blog" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   const handleContact = useCallback(() => {
     setOpen(false);
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    window.location.href = "/contact";
   }, []);
 
   return (
@@ -220,8 +226,8 @@ function Navbar() {
             <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={160} height={42} priority style={{ filter: "brightness(0) invert(1)" }} />
           </a>
           <div className="nav-links">
-            {navLinks.map((l) => (
-              <a key={l} href={`#${l.toLowerCase()}`}>{l}</a>
+            {navLinks.map(({ label, href }) => (
+              <a key={label} href={href}>{label}</a>
             ))}
           </div>
           <div className="nav-actions">
@@ -241,9 +247,9 @@ function Navbar() {
       </nav>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        {navLinks.map((l) => (
-          <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}>
-            {l}
+        {navLinks.map(({ label, href }) => (
+          <a key={label} href={href} onClick={() => setOpen(false)}>
+            {label}
           </a>
         ))}
         <button className="btn mobile-menu-cta" onClick={handleContact}>
