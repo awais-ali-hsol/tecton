@@ -793,15 +793,27 @@ function Footer() {
 
           <div className="footer-col">
             <h4>Services</h4>
-            {["Custom Software", "Web & Mobile", "AI & Automation", "SaaS Platforms", "UI/UX Design"].map((s) => (
-              <a key={s} href="/services">{s}</a>
+            {[
+              { label: "Custom Software", slug: "custom-software" },
+              { label: "Web & Mobile", slug: "web-mobile" },
+              { label: "AI & Automation", slug: "ai-automation" },
+              { label: "SaaS Platforms", slug: "saas-platforms" },
+              { label: "UI/UX Design", slug: "ui-ux-product-design" },
+            ].map(({ label, slug }) => (
+              <a key={slug} href={`/services/${slug}`}>{label}</a>
             ))}
           </div>
 
           <div className="footer-col">
             <h4>Company</h4>
-            {["About Us", "Our Work", "Blog", "Careers", "Contact"].map((s) => (
-              <a key={s} href={`/${s.toLowerCase().replace(" ", "-")}`}>{s}</a>
+            {[
+              { label: "About Us", href: "/about" },
+              { label: "Our Work", href: "/work" },
+              { label: "Blog", href: "#blog" },
+              { label: "Careers", href: "#careers" },
+              { label: "Contact", href: "/contact" },
+            ].map(({ label, href }) => (
+              <a key={label} href={href}>{label}</a>
             ))}
           </div>
 
