@@ -66,48 +66,65 @@ export default async function ServicePage(
 
       {/* ── HERO ───────────────────────────────────────────────────────── */}
       <section className="sdp-hero">
-        {/* faint outlined BG word */}
+
+        {/* Photo background */}
+        <div className="sdp-hero-photo" aria-hidden>
+          <Image
+            src="/assets/imgi_13_bg5.webp"
+            alt=""
+            fill
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
+            priority
+          />
+          <div className="sdp-hero-photo-overlay" />
+        </div>
+
+        {/* Outlined bg word */}
         <div className="sdp-hero-bg-word" aria-hidden>{svc.title.toUpperCase()}</div>
 
-        <div className="container sdp-hero-inner">
-          {/* Left */}
-          <div className="sdp-hero-copy">
+        <div className="container sdp-hero-body">
+
+          {/* Top row — eyebrow + service number */}
+          <div className="sdp-hero-top">
             <div className="sdp-hero-eyebrow">
-              <span className="sdp-num">{svc.number}</span>
-              <span className="eyebrow">{svc.title}</span>
+              <div className="sdp-hero-icon-wrap">
+                <Icon size={20} strokeWidth={1.5} />
+              </div>
+              <span className="eyebrow" style={{ color: "rgba(255,255,255,0.55)" }}>{svc.title}</span>
             </div>
-            <h1 className="sdp-h1">{svc.detail}</h1>
+            <span className="sdp-hero-num-badge">{svc.number} / {String(services.length).padStart(2,"0")}</span>
+          </div>
+
+          {/* Main headline */}
+          <h1 className="sdp-hero-h1">
+            <span className="sdp-hero-h1-outline" aria-hidden>{svc.title}</span>
+            <span className="sdp-hero-h1-solid">{svc.title}</span>
+          </h1>
+
+          {/* Divider + detail text */}
+          <div className="sdp-hero-detail-row">
+            <div className="sdp-hero-divider" />
+            <p className="sdp-hero-detail">{svc.detail}</p>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="sdp-hero-bar">
+            {/* Left — tech pills */}
+            <div className="sdp-hero-pills">
+              {svc.technologies.map((t) => (
+                <span key={t} className="sdp-hero-pill">{t}</span>
+              ))}
+            </div>
+
+            {/* Right — CTA */}
             <div className="sdp-hero-actions">
               <Link href="/#contact" className="btn">
                 Start a Project
                 <span className="btn-icon"><ArrowUpRight size={16} /></span>
               </Link>
-              <Link href="/#services" className="btn-outline">
-                <ArrowLeft size={14} /> All Services
-              </Link>
             </div>
           </div>
 
-          {/* Right — visual card */}
-          <div className="sdp-hero-visual">
-            <div className="sdp-visual-card">
-              <div className="sdp-visual-icon">
-                <Icon size={36} strokeWidth={1.4} />
-              </div>
-              <div className="sdp-visual-label">{svc.title}</div>
-              <div className="sdp-visual-sub">TECTON SOLUTIONS</div>
-              <div className="sdp-visual-orbit sdp-orbit-1" />
-              <div className="sdp-visual-orbit sdp-orbit-2" />
-              <div className="sdp-visual-orbit sdp-orbit-3" />
-            </div>
-
-            {/* Floating tech tags */}
-            <div className="sdp-tech-tags">
-              {svc.technologies.map((t) => (
-                <span key={t} className="sdp-tech-tag">{t}</span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
