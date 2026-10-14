@@ -635,14 +635,19 @@ function Team() {
         <div className="team-grid">
           {team.map((member, i) => (
             <div key={member.name} className="team-card reveal" style={{ "--reveal-delay": i * 80 } as React.CSSProperties}>
-              <div className="team-avatar">
-                <Image src={member.avatar} alt={member.name} width={96} height={96} />
+              <div className="team-photo">
+                <Image src={member.avatar} alt={member.name} fill style={{ objectFit: "cover", objectPosition: "top center" }} />
+                <div className="team-photo-overlay" />
               </div>
-              <div className="team-name">{member.name}</div>
-              <div className="team-role">{member.role}</div>
-              <div className="team-socials">
-                <a href="#" className="team-social-btn" aria-label="LinkedIn"><LinkedInIcon /></a>
-                <a href="#" className="team-social-btn" aria-label="Twitter"><TwitterIcon /></a>
+              <div className="team-card-body">
+                <div className="team-card-info">
+                  <div className="team-name">{member.name}</div>
+                  <div className="team-role">{member.role}</div>
+                </div>
+                <div className="team-socials">
+                  <a href="#" className="team-social-btn" aria-label="LinkedIn"><LinkedInIcon /></a>
+                  <a href="#" className="team-social-btn" aria-label="Twitter"><TwitterIcon /></a>
+                </div>
               </div>
             </div>
           ))}
