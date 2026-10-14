@@ -177,7 +177,7 @@ function Navbar() {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="container nav-inner">
           <a href="/" className="nav-logo" aria-label="Tecton Solutions">
-            <Image src="/tecton-logo-white.svg" alt="Tecton Solutions" width={160} height={42} priority />
+            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={160} height={42} priority style={{ filter: "brightness(0) invert(1)" }} />
           </a>
           <div className="nav-links">
             {navLinks.map((l) => (
@@ -729,7 +729,7 @@ function Footer() {
 
         <div className="footer-cols">
           <div className="footer-brand">
-            <Image src="/tecton-logo-white.svg" alt="Tecton Solutions" width={140} height={36} />
+            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={140} height={36} style={{ filter: "brightness(0) invert(1)" }} />
             <p>
               We build modern digital products for growing businesses — from custom
               software and SaaS to AI-powered tools.
