@@ -221,7 +221,7 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-bg">
         <Image
-          src="/assets/imgi_16_project2-672x448.webp"
+          src="/assets/imgi_16_Group3.webp"
           alt=""
           fill
           style={{ objectFit: "cover", objectPosition: "center 25%" }}
@@ -523,7 +523,7 @@ function PhotoBand() {
     <div className="photo-band">
       <div className="photo-band-bg">
         <Image
-          src="/assets/imgi_16_project2-672x448.webp"
+          src="/assets/imgi_13_bg5.webp"
           alt=""
           fill
           style={{ objectFit: "cover", objectPosition: "center 40%" }}
