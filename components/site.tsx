@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, RefObject } from "react";
 import Image from "next/image";
 import {
   services,
@@ -14,6 +14,46 @@ import {
 } from "@/lib/data";
 
 /* ─── HOOKS ─────────────────────────────────────────────────────────────────── */
+
+/* Adds .revealed to elements when they enter the viewport */
+function useReveal(threshold = 0.12) {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(
+      ".reveal, .reveal-left, .reveal-right, .reveal-scale"
+    );
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add("revealed");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [threshold]);
+}
+
+/* Parallax on hero background */
+function useParallax(ref: RefObject<HTMLElement | null>, factor = 0.35) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let raf = 0;
+    const onScroll = () => {
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        (el as HTMLElement).style.transform = `translateY(${y * factor}px)`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); };
+  }, [ref, factor]);
+}
 
 function useScrolled(threshold = 20) {
   const [scrolled, setScrolled] = useState(false);
@@ -217,9 +257,11 @@ function Navbar() {
 
 /* ─── HERO ───────────────────────────────────────────────────────────────────── */
 function Hero() {
+  const bgRef = useRef<HTMLDivElement>(null);
+  useParallax(bgRef, 0.28);
   return (
     <section className="hero" id="home">
-      <div className="hero-bg">
+      <div className="hero-bg" ref={bgRef}>
         <Image
           src="/assets/imgi_16_Group3.webp"
           alt=""
@@ -312,8 +354,10 @@ function Stats() {
     <section className="stats-section">
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="stats-grid">
-          {stats.map((s) => (
-            <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+          {stats.map((s, i) => (
+            <div key={s.label} className="reveal" style={{ "--reveal-delay": i * 120 } as React.CSSProperties}>
+              <StatCounter value={s.value} suffix={s.suffix} label={s.label} />
+            </div>
           ))}
         </div>
       </div>
@@ -344,13 +388,13 @@ function Services() {
     <section className="services-section" id="services">
       <div className="container">
         <div className="section-head">
-          <div>
+          <div className="reveal-left">
             <div className="eyebrow" style={{ marginBottom: "16px" }}>What We Do</div>
             <h2 className="section-h2">
               Full-spectrum<br /><span className="lime">digital craft</span>
             </h2>
           </div>
-          <div>
+          <div className="reveal-right">
             <p className="section-body">
               From early-stage product strategy to production-grade engineering,
               we bring together every discipline needed to ship great software.
@@ -361,8 +405,8 @@ function Services() {
           </div>
         </div>
         <div className="services-grid">
-          {services.slice(0, 9).map((svc) => (
-            <div key={svc.slug} className="svc-card">
+          {services.slice(0, 9).map((svc, i) => (
+            <div key={svc.slug} className="svc-card reveal" style={{ "--reveal-delay": 60 + i * 70 } as React.CSSProperties}>
               <div className="svc-num">{svc.number}</div>
               <div className="svc-icon">
                 <SvcIcon icon={svc.icon} />
@@ -385,8 +429,8 @@ function CaseStudies() {
   return (
     <section className="cases-section" id="work">
       <div className="container" style={{ position: "relative" }}>
-        <div className="cases-eyebrow"><span className="eyebrow">Selected Work</span></div>
-        <div className="cases-title-row">
+        <div className="cases-eyebrow reveal"><span className="eyebrow">Selected Work</span></div>
+        <div className="cases-title-row reveal" style={{ "--reveal-delay": 80 } as React.CSSProperties}>
           <h2 className="cases-h2">
             Projects that<br />move the needle.
           </h2>
@@ -396,8 +440,8 @@ function CaseStudies() {
             <span className="btn-icon"><ArrowRight /></span>
           </a>
         </div>
-        {projects.map((proj) => (
-          <div key={proj.title} className="case-row">
+        {projects.map((proj, i) => (
+          <div key={proj.title} className="case-row reveal" style={{ "--reveal-delay": i * 100 } as React.CSSProperties}>
             <div className="case-img-wrap">
               <Image
                 src={proj.image}
@@ -434,11 +478,11 @@ function Testimonials() {
   return (
     <section className="testimonials-section" id="about">
       <div className="container">
-        <div style={{ marginBottom: "48px" }}>
+        <div className="reveal" style={{ marginBottom: "48px" }}>
           <span className="eyebrow">Client Voices</span>
         </div>
         <div className="testimonials-inner">
-          <div className="rating-col">
+          <div className="rating-col reveal-left" style={{ "--reveal-delay": 100 } as React.CSSProperties}>
             <div className="rating-num">4.9</div>
             <div className="rating-stars">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -447,7 +491,7 @@ function Testimonials() {
             </div>
             <p className="rating-note">Based on 40+ verified reviews across Clutch and Google.</p>
           </div>
-          <div>
+          <div className="reveal-right" style={{ "--reveal-delay": 200 } as React.CSSProperties}>
             <div className="testimonial-card">
               <p className="t-quote">&ldquo;{t.quote}&rdquo;</p>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
@@ -490,7 +534,7 @@ function Awards() {
     <section className="awards-section">
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="awards-inner">
-          <div>
+          <div className="reveal-left">
             <div className="awards-left-head">
               <span className="eyebrow" style={{ marginBottom: "16px", display: "flex" }}>Recognition</span>
               <h2 className="section-h2">Award-winning<br /><span className="lime">work.</span></h2>
@@ -502,8 +546,8 @@ function Awards() {
             <div className="awards-decoration" style={{ marginTop: "48px" }} />
           </div>
           <div className="awards-list">
-            {awards.map((a) => (
-              <div key={a.title} className="award-row">
+            {awards.map((a, i) => (
+              <div key={a.title} className="award-row reveal" style={{ "--reveal-delay": i * 90 } as React.CSSProperties}>
                 <div className="award-cat">{a.category}</div>
                 <div className="award-title">{a.title}</div>
                 <div className="award-year">{a.year}</div>
@@ -530,7 +574,7 @@ function PhotoBand() {
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(10,10,10,0.72)" }} />
       </div>
-      <div className="container photo-band-content">
+      <div className="container photo-band-content reveal-scale">
         <h2 className="photo-band-h2">
           Precision built.<br /><span className="lime">Results delivered.</span>
         </h2>
@@ -551,12 +595,12 @@ function Clients() {
   return (
     <section className="clients-section">
       <div className="container">
-        <div className="clients-label">
+        <div className="clients-label reveal">
           <span className="eyebrow">Trusted By</span>
         </div>
         <div className="clients-grid">
           {clients.slice(0, 10).map((src, i) => (
-            <div key={i} className="client-tile">
+            <div key={i} className="client-tile reveal" style={{ "--reveal-delay": i * 55 } as React.CSSProperties}>
               <Image src={src} alt="Client" width={120} height={28} style={{ height: "28px", width: "auto", objectFit: "contain" }} />
             </div>
           ))}
@@ -583,8 +627,8 @@ function Team() {
           </p>
         </div>
         <div className="team-grid">
-          {team.map((member) => (
-            <div key={member.name} className="team-card">
+          {team.map((member, i) => (
+            <div key={member.name} className="team-card reveal" style={{ "--reveal-delay": i * 80 } as React.CSSProperties}>
               <div className="team-avatar">
                 <Image src={member.avatar} alt={member.name} width={96} height={96} />
               </div>
@@ -608,7 +652,7 @@ function CtaBand() {
     <section className="cta-band">
       <div className="container">
         <div className="cta-band-inner">
-          <h2 className="cta-band-h2">
+          <h2 className="cta-band-h2 reveal-left">
             Ready to build<br />something <span className="lime">great?</span>
           </h2>
           <button
@@ -646,8 +690,8 @@ function Blog() {
           </div>
         </div>
         <div className="blog-grid">
-          {posts.map((post) => (
-            <a key={post.title} href={post.slug} className="blog-card">
+          {posts.map((post, i) => (
+            <a key={post.title} href={post.slug} className="blog-card reveal" style={{ "--reveal-delay": i * 100 } as React.CSSProperties}>
               <div className="blog-img">
                 <Image src={post.image} alt={post.title} fill style={{ objectFit: "cover" }} />
                 <div className="blog-img-overlay" />
@@ -687,7 +731,7 @@ function Footer() {
     <footer className="footer" id="contact">
       <div className="container">
         <div className="footer-top">
-          <div>
+          <div className="reveal-left">
             <h2 className="footer-headline">
               Let&apos;s<br /><span className="lime">Talk.</span>
             </h2>
@@ -696,7 +740,7 @@ function Footer() {
               line and we&apos;ll be in touch within 24 hours.
             </p>
           </div>
-          <div className="footer-form-side">
+          <div className="footer-form-side reveal-right" style={{ "--reveal-delay": 150 } as React.CSSProperties}>
             <span className="footer-form-label">Stay in the loop</span>
             <form onSubmit={handleSubmit} className="footer-input-row">
               <input
@@ -787,6 +831,7 @@ function Footer() {
 
 /* ─── PAGE ───────────────────────────────────────────────────────────────────── */
 export default function Site() {
+  useReveal();
   return (
     <>
       <Navbar />

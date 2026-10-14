@@ -1252,3 +1252,317 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     scroll-behavior: auto !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ANIMATION SYSTEM
+   All GPU-friendly (transform + opacity only). Respects prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ─── KEYFRAMES ──────────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fade-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes mobile-menu-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+
+/* ─── SCROLL REVEAL SYSTEM ───────────────────────────────────────────────────── */
+/* Elements start hidden; JS adds .revealed when they enter the viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+  will-change: opacity, transform;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+  will-change: opacity, transform;
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+  will-change: opacity, transform;
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--reveal-delay, 0) * 1ms);
+  will-change: opacity, transform;
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── ENHANCED BUTTON INTERACTIONS ──────────────────────────────────────────── */
+.btn {
+  transition: background 220ms ease,
+              transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 220ms ease !important;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217, 244, 95, 0.22);
+}
+.btn:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: none;
+}
+
+.btn-outline {
+  transition: border-color 220ms ease, color 220ms ease,
+              transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 220ms ease !important;
+}
+.btn-outline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 244, 95, 0.12);
+}
+.btn-outline:active { transform: translateY(0) scale(0.98); }
+
+/* Icon end spins slightly on hover */
+.btn:hover .btn-icon {
+  transform: rotate(45deg);
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-icon {
+  transition: transform 200ms ease;
+}
+
+/* ─── NAVBAR ENHANCEMENTS ────────────────────────────────────────────────────── */
+.nav-links a {
+  position: relative;
+  transition: color 200ms ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: width 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-links a:hover::after { width: 100%; }
+
+/* Logo subtle scale */
+.nav-logo {
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.nav-logo:hover { transform: scale(1.04); opacity: 0.9; }
+
+/* Mobile menu entrance */
+.mobile-menu.open {
+  animation: mobile-menu-in 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.mobile-menu a {
+  transition: color 180ms ease, transform 180ms ease;
+}
+.mobile-menu a:hover { transform: translateX(6px); }
+
+/* ─── CARD HOVER LIFT SYSTEM ─────────────────────────────────────────────────── */
+.svc-card {
+  transition: background 220ms ease,
+              transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 280ms ease !important;
+}
+.svc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+.svc-icon {
+  transition: transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 220ms ease !important;
+}
+.svc-card:hover .svc-icon {
+  transform: scale(1.15) rotate(-5deg);
+  background: rgba(217, 244, 95, 0.18);
+}
+
+.blog-card {
+  transition: border-color 220ms ease,
+              transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 300ms ease !important;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45);
+}
+
+.team-card {
+  transition: border-color 220ms ease,
+              transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 280ms ease !important;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+.team-avatar {
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.team-card:hover .team-avatar { transform: scale(1.08); }
+
+.testimonial-card {
+  transition: border-color 220ms ease,
+              transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 300ms ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* ─── CASE STUDY ROW ─────────────────────────────────────────────────────────── */
+.case-row {
+  transition: padding 200ms ease;
+}
+
+/* ─── CLIENT TILE ────────────────────────────────────────────────────────────── */
+.client-tile {
+  transition: background 220ms ease, transform 250ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.client-tile:hover { transform: scale(1.06); }
+
+/* ─── AWARD ROW ──────────────────────────────────────────────────────────────── */
+.award-row {
+  transition: background 200ms ease, padding-left 200ms ease;
+  border-radius: 4px;
+}
+.award-row:hover {
+  background: rgba(217, 244, 95, 0.04);
+  padding-left: 12px;
+}
+.award-title {
+  transition: color 200ms ease;
+}
+.award-row:hover .award-title { color: var(--color-primary); }
+
+/* ─── TEXT LINKS ─────────────────────────────────────────────────────────────── */
+.text-link svg, .svc-link svg, .blog-read-more svg {
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.text-link:hover svg { transform: translateX(4px); }
+.svc-card:hover .svc-link svg { transform: translateX(3px); }
+.blog-card:hover .blog-read-more svg { transform: translateX(3px); }
+
+/* ─── SOCIAL BUTTONS ─────────────────────────────────────────────────────────── */
+.team-social-btn, .footer-social-btn {
+  transition: color 200ms ease, border-color 200ms ease,
+              transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.team-social-btn:hover, .footer-social-btn:hover { transform: translateY(-3px) scale(1.1); }
+
+/* ─── EYEBROW ENTRANCE ───────────────────────────────────────────────────────── */
+.eyebrow {
+  transition: color 200ms ease;
+}
+
+/* ─── HERO HEADLINE STAGGER (CSS-only, runs once on load) ────────────────────── */
+.hero-h1 .line-white:nth-child(1) { animation: fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both; }
+.hero-h1 .line-white:nth-child(2) { animation: fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both; }
+.hero-h1 .line-lime              { animation: fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both; }
+.hero-tag-row                    { animation: fade-up 600ms cubic-bezier(0.16, 1, 0.3, 1) 450ms both; }
+.hero-right                      { animation: fade-right 700ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both; }
+.hero-left > .eyebrow            { animation: fade-up 500ms ease 0ms both; }
+
+/* ─── FOOTER INPUT FOCUS ─────────────────────────────────────────────────────── */
+.footer-input {
+  transition: border-color 200ms ease, box-shadow 200ms ease !important;
+}
+.footer-input:focus {
+  box-shadow: 0 0 0 3px rgba(217, 244, 95, 0.12);
+}
+
+/* ─── PHOTO BAND PARALLAX HINT ────────────────────────────────────────────────── */
+.photo-band-bg img {
+  transition: transform 0ms linear;
+  will-change: transform;
+}
+
+/* ─── MARQUEE PAUSE ON HOVER ─────────────────────────────────────────────────── */
+.marquee-band:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ─── CASE IMG ZOOM (already in base, enhance timing) ────────────────────────── */
+.case-img-wrap img {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.case-row:hover .case-img-wrap img { transform: scale(1.06); }
+
+/* ─── BLOG IMG ZOOM ───────────────────────────────────────────────────────────── */
+.blog-img img {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* ─── REDUCED MOTION OVERRIDES ───────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .hero-h1 .line-white, .hero-h1 .line-lime,
+  .hero-tag-row, .hero-right, .hero-left > .eyebrow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .btn:hover, .btn-outline:hover, .svc-card:hover,
+  .blog-card:hover, .team-card:hover {
+    transform: none !important;
+  }
+}
