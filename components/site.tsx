@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback, RefObject } from "react";
 import Image from "next/image";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   services,
   projects,
@@ -231,6 +232,7 @@ function Navbar() {
             ))}
           </div>
           <div className="nav-actions">
+            <ThemeToggle />
             <button className="btn" onClick={handleContact}>
               Start a Project
               <span className="btn-icon"><ArrowRight /></span>

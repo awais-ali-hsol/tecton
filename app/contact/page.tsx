@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone, CheckCircle2 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "info@tectonsolutions.com", href: "mailto:info@tectonsolutions.com" },
@@ -44,6 +45,7 @@ export default function ContactPage() {
             <Link href="/about" className="cp-nav-link">About</Link>
             <Link href="/work" className="cp-nav-link">Our Work</Link>
             <Link href="/contact" className="cp-nav-link cp-nav-link--active">Contact</Link>
+            <ThemeToggle />
           </div>
         </div>
       </nav>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projects, services } from "@/lib/data";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Our Work | Tecton Solutions",
@@ -27,6 +28,7 @@ export default function WorkPage() {
             <Link href="/about" className="cp-nav-link">About</Link>
             <Link href="/work" className="cp-nav-link cp-nav-link--active">Our Work</Link>
             <Link href="/contact" className="cp-nav-link">Contact</Link>
+            <ThemeToggle />
           </div>
         </div>
       </nav>

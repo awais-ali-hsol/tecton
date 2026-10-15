@@ -2388,3 +2388,92 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transform: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   LIGHT MODE
+   Override only tokens + the handful of hardcoded rgba(10,10,10,*) / rgba(255,*)
+   values that live outside photo-overlay contexts (photo overlays deliberately
+   stay dark so text on photos stays readable in both themes).
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  /* ── Surfaces ──────────────────────────────────────────────── */
+  --color-bg:             #F5F5F1;
+  --color-surface:        #FFFFFF;
+  --color-surface-raised: #EDEDE8;
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --color-text:        #1A1A18;
+  --color-text-strong: #0A0A0A;
+  --color-text-muted:  #5C5D57;
+  --color-text-dim:    #8A8B85;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --color-border:        #D4D5CF;
+  --color-border-subtle: #E2E3DD;
+
+  /* ── Outlined text on page bg (not on photos) ──────────────── */
+  --color-outline: rgba(0, 0, 0, 0.10);
+
+  /* ── Primary lime stays; on-primary stays dark ─────────────── */
+}
+
+/* ── Logo: turn white logo black in light mode ─────────────────── */
+[data-theme="light"] .nav-logo img,
+[data-theme="light"] .sdp-nav-logo img { filter: brightness(0) !important; }
+
+[data-theme="light"] .sdp-footer img,
+[data-theme="light"] .footer-brand img { filter: brightness(0) !important; }
+
+/* ── Navbar / mobile menu backgrounds ──────────────────────────── */
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(245, 245, 241, 0.92);
+}
+[data-theme="light"] .mobile-menu {
+  background: rgba(245, 245, 241, 0.97);
+}
+[data-theme="light"] .sdp-nav {
+  background: rgba(245, 245, 241, 0.92);
+}
+
+/* ── Outlined bg-words that sit on the page color (not on photos) */
+/* contact + work hero bg-words */
+[data-theme="light"] .cp-hero-bg-word,
+[data-theme="light"] .wp-hero-bg-word {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.06);
+}
+/* work page outlined headline */
+[data-theme="light"] .wp-h1-outline {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.15);
+}
+/* about CTA bg-word (sits on --color-surface) */
+[data-theme="light"] .ap-cta-bg-word {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ── Client logos: brighten to dark on light bg ─────────────────── */
+[data-theme="light"] .client-tile img {
+  filter: grayscale(100%) brightness(0);
+  opacity: 0.25;
+}
+[data-theme="light"] .client-tile:hover img { opacity: 0.45; }
+
+/* ── Theme toggle button ─────────────────────────────────────────── */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: transparent;
+  transition: color var(--transition), border-color var(--transition),
+              transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.1);
+}

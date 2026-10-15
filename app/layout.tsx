@@ -33,6 +33,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={font.variable}>
+      <head>
+        {/* Reads persisted theme before paint to prevent flash */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})()`}} />
+      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );
