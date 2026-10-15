@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import {
   ArrowLeft, ArrowUpRight, Check,
   Braces, Cloud, CloudCog, Gauge, Layers3,
@@ -56,8 +57,7 @@ export default async function ServicePage(
       <nav className="sdp-nav">
         <div className="sdp-nav-inner">
           <Link href="/" className="sdp-nav-logo" aria-label="Tecton Solutions home">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={140} height={38}
-              style={{ filter: "brightness(0) invert(1)" }} priority />
+            <Logo width={140} />
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <ThemeToggle />
@@ -277,8 +277,7 @@ export default async function ServicePage(
       <footer className="sdp-footer">
         <div className="container sdp-footer-inner">
           <Link href="/" aria-label="Tecton Solutions home">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={120} height={32}
-              style={{ filter: "brightness(0) invert(1)", opacity: 0.6 }} />
+            <Logo width={120} style={{ opacity: 0.6 }} />
           </Link>
           <span className="sdp-footer-copy">
             © {new Date().getFullYear()} Tecton Solutions. All rights reserved.

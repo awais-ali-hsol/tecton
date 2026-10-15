@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback, RefObject } from "react";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Logo } from "@/components/Logo";
 import {
   services,
   projects,
@@ -224,7 +225,7 @@ function Navbar() {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="container nav-inner">
           <a href="/" className="nav-logo" aria-label="Tecton Solutions">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={160} height={42} priority style={{ filter: "brightness(0) invert(1)" }} />
+            <Logo width={160} />
           </a>
           <div className="nav-links">
             {navLinks.map(({ label, href }) => (
@@ -786,7 +787,7 @@ function Footer() {
 
         <div className="footer-cols">
           <div className="footer-brand">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={140} height={36} style={{ filter: "brightness(0) invert(1)" }} />
+            <Logo width={140} />
             <p>
               We build modern digital products for growing businesses — from custom
               software and SaaS to AI-powered tools.
