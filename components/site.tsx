@@ -733,7 +733,7 @@ function Footer() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      window.location.href = `mailto:hello@tectonsolutions.com?subject=Newsletter&body=Please add ${email} to your newsletter.`;
+      window.location.href = `mailto:info@tectonsolutions.com?subject=Newsletter&body=Please add ${email} to your newsletter.`;
       setEmail("");
     }
   };
@@ -769,11 +769,11 @@ function Footer() {
             </form>
             <div style={{ display: "flex", gap: "12px", marginTop: "8px" }}>
               <a
-                href="mailto:hello@tectonsolutions.com"
+                href="mailto:info@tectonsolutions.com"
                 className="btn"
                 style={{ height: "52px", padding: "6px 6px 6px 18px", fontSize: "14px" }}
               >
-                hello@tectonsolutions.com
+                info@tectonsolutions.com
                 <span className="btn-icon" style={{ width: "40px", height: "40px" }}>
                   <ArrowUpRight size={14} />
                 </span>
@@ -826,7 +826,7 @@ function Footer() {
             <h4>Get in Touch</h4>
             <div className="footer-contact-row">
               <span>Email</span>
-              <a href="mailto:hello@tectonsolutions.com">hello@tectonsolutions.com</a>
+              <a href="mailto:info@tectonsolutions.com">info@tectonsolutions.com</a>
             </div>
             <div className="footer-contact-row">
               <span>Phone</span>

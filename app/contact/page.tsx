@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone, CheckCircle2 } from "lucide-react";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@tectonsolutions.com", href: "mailto:hello@tectonsolutions.com" },
+  { icon: Mail, label: "Email", value: "info@tectonsolutions.com", href: "mailto:info@tectonsolutions.com" },
   { icon: Phone, label: "Phone", value: "+1 (555) 234-5678", href: "tel:+15552345678" },
   { icon: MapPin, label: "Office", value: "350 Fifth Avenue, New York, NY 10118", href: "#" },
 ];
