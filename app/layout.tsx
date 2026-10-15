@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import "./hero.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const font = Plus_Jakarta_Sans({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Tecton Solutions | Ideas / Technology / Real Solutions",
+  title: "Tecton Solutions | Design. Build. Deliver.",
   description: "Tecton Solutions builds modern software, web applications, mobile apps, AI solutions, SaaS platforms and scalable digital products for growing businesses.",
   keywords: ["software development", "AI solutions", "SaaS", "web development", "Tecton Solutions"],
   icons: {
@@ -22,20 +18,22 @@ export const metadata: Metadata = {
     shortcut: "/tecton-favicon.png",
     apple: "/icon.png",
   },
-  openGraph: { title: "Tecton Solutions | Ideas / Technology / Real Solutions", description: "Modern digital products for growing businesses.", type: "website" },
-  twitter: { card: "summary_large_image", title: "Tecton Solutions", description: "Ideas / technology / real solutions." },
+  openGraph: {
+    title: "Tecton Solutions | Design. Build. Deliver.",
+    description: "Modern digital products for growing businesses.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tecton Solutions",
+    description: "Design. Build. Deliver.",
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        {children}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "Tecton Solutions", url: "https://tectonsolutions.com", slogan: "Ideas / Technology / Real Solutions", description: "Modern software and technology company building scalable digital products." }) }} />
-      </body>
+    <html lang="en" className={font.variable}>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
