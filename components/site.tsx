@@ -446,7 +446,7 @@ function CaseStudies() {
             <span className="btn-icon"><ArrowRight /></span>
           </a>
         </div>
-        {projects.map((proj, i) => (
+        {projects.slice(0, 3).map((proj, i) => (
           <div key={proj.title} className="case-row reveal" style={{ "--reveal-delay": i * 100 } as React.CSSProperties}>
             <div className="case-img-wrap">
               <Image
@@ -465,8 +465,8 @@ function CaseStudies() {
                   <span key={t} className="case-tag">{t}</span>
                 ))}
               </div>
-              <a href="/work" className="text-link">
-                View Case Study <ArrowUpRight size={13} />
+              <a href={proj.url} target="_blank" rel="noopener noreferrer" className="text-link">
+                View Live Site <ArrowUpRight size={13} />
               </a>
             </div>
           </div>

@@ -1987,7 +1987,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .wp-case-outcome-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 8px; }
 .wp-case-outcome-text { font-size: 14px; line-height: 1.65; color: var(--color-text); }
-.wp-case-cta { align-self: flex-start; }
+.wp-case-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; align-self: flex-start; }
 
 /* Projects grid */
 .wp-grid-section { padding: var(--section-y) 0; border-top: 1px solid var(--color-border-subtle); }
@@ -2002,6 +2002,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .wp-project-img { position: relative; height: 220px; overflow: hidden; }
 .wp-project-img img { transition: transform 400ms ease; }
 .wp-project-card:hover .wp-project-img img { transform: scale(1.05); }
+.wp-project-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.5) 100%);
+  transition: opacity 300ms ease;
+}
+.wp-project-link-badge {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  display: grid; place-items: center; width: 32px; height: 32px;
+  border-radius: 50%; background: var(--color-primary); color: var(--color-on-primary);
+  opacity: 0; transform: scale(0.7);
+  transition: opacity 250ms ease, transform 250ms cubic-bezier(0.34,1.56,0.64,1);
+}
+.wp-project-card:hover .wp-project-link-badge { opacity: 1; transform: scale(1); }
 .wp-project-info { padding: 24px; }
 .wp-project-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); display: block; margin-bottom: 8px; }
 .wp-project-title { font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: 12px; letter-spacing: -0.01em; }
