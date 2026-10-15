@@ -2415,7 +2415,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   /* ── Outlined text on page bg (not on photos) ──────────────── */
   --color-outline: rgba(0, 0, 0, 0.10);
 
-  /* ── Primary lime stays; on-primary stays dark ─────────────── */
+  /* ── Lime: darkened for text/icon use on light surfaces ─────── */
+  /* btn bg and marquee still use the full-brightness lime;        */
+  /* text/icon uses inherit via --color-primary which we keep      */
+  /* bright but override per-selector below where contrast fails.  */
 }
 
 /* ── Logo: turn white logo black in light mode ─────────────────── */
@@ -2457,6 +2460,124 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   opacity: 0.25;
 }
 [data-theme="light"] .client-tile:hover img { opacity: 0.45; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHT MODE — photo-section text locks
+   Sections with dark photo overlays (hero, photo-band) keep white
+   text regardless of theme, because the visual background is always
+   dark photo. Token-based colours would turn dark in light mode
+   and become invisible.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero: keep white on dark photo overlay ────────────────── */
+[data-theme="light"] .hero-h1 .line-white { color: #ffffff; }
+[data-theme="light"] .hero-desc           { color: rgba(255,255,255,0.72); }
+[data-theme="light"] .hero-proof-text strong { color: #ffffff; }
+[data-theme="light"] .hero-proof-text span   { color: rgba(255,255,255,0.55); }
+[data-theme="light"] .hero-mini-stat strong  { color: #ffffff; }
+[data-theme="light"] .hero-mini-stat span    { color: rgba(255,255,255,0.55); }
+[data-theme="light"] .hero-mini-sep          { background: rgba(255,255,255,0.18); }
+[data-theme="light"] .hero-tag               { color: rgba(255,255,255,0.45); }
+[data-theme="light"] .hero .btn-outline {
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.3);
+}
+[data-theme="light"] .hero .btn-outline:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ── Navbar over photo (unscrolled = transparent) ──────────── */
+[data-theme="light"] .navbar:not(.scrolled) .nav-links a  { color: rgba(255,255,255,0.65); }
+[data-theme="light"] .navbar:not(.scrolled) .nav-links a:hover { color: #ffffff; }
+[data-theme="light"] .navbar:not(.scrolled) .nav-links a.active { color: var(--color-primary); }
+[data-theme="light"] .navbar:not(.scrolled) .nav-logo img { filter: brightness(0) invert(1) !important; }
+[data-theme="light"] .navbar:not(.scrolled) .nav-search-btn { color: rgba(255,255,255,0.65); }
+[data-theme="light"] .navbar:not(.scrolled) .menu-toggle   { color: rgba(255,255,255,0.75); }
+[data-theme="light"] .navbar:not(.scrolled) .theme-toggle  {
+  color: rgba(255,255,255,0.65);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* ── Photo band: keep white on dark photo overlay ──────────── */
+[data-theme="light"] .photo-band-h2 { color: #ffffff; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHT MODE — lime contrast fixes
+   Lime #D9F45F on white/light bg = ~1.3:1 contrast (invisible).
+   Override to a dark olive-green (#6B7A00) for icon, text and
+   accent uses on light surfaces. Lime still appears full-bright on
+   dark overlays / as button backgrounds.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Darker lime for text/icon on light surfaces */
+[data-theme="light"] .svc-icon {
+  background: rgba(90,110,0,0.09);
+  color: #6B7A00;
+}
+[data-theme="light"] .svc-card:hover .svc-icon { background: rgba(90,110,0,0.15); }
+[data-theme="light"] .svc-link         { color: #8A8B85; }
+[data-theme="light"] .svc-card:hover .svc-link { color: #6B7A00; }
+
+/* Stats section */
+[data-theme="light"] .stat-num .suf { color: #6B7A00; }
+
+/* Cases */
+[data-theme="light"] .case-cat { color: #6B7A00; }
+
+/* Testimonials rating */
+[data-theme="light"] .rating-num  { color: #6B7A00; }
+[data-theme="light"] .rating-stars { color: #6B7A00; }
+
+/* Awards */
+[data-theme="light"] .award-row:hover .award-title { color: #6B7A00; }
+
+/* Blog */
+[data-theme="light"] .blog-cat { color: #6B7A00; }
+
+/* Eyebrow + prefix */
+[data-theme="light"] .eyebrow::before { color: #6B7A00; }
+
+/* Section h2 lime spans */
+[data-theme="light"] .section-h2 .lime,
+[data-theme="light"] .cases-h2 .lime,
+[data-theme="light"] .cta-band-h2 .lime,
+[data-theme="light"] .footer-headline .lime,
+[data-theme="light"] .photo-band-h2 .lime { color: var(--color-primary); } /* lime on dark = ok */
+
+/* sdp pages */
+[data-theme="light"] .sdp-lime  { color: #6B7A00; }
+[data-theme="light"] .sdp-exp-num { color: #6B7A00; }
+
+/* Contact */
+[data-theme="light"] .cp-h1-lime { color: #6B7A00; }
+[data-theme="light"] .cp-contact-icon { background: rgba(90,110,0,0.09); color: #6B7A00; }
+[data-theme="light"] .cp-aside-promise strong { color: #6B7A00; }
+
+/* About */
+[data-theme="light"] .ap-stat-value   { color: #6B7A00; }
+[data-theme="light"] .ap-value-num    { color: #6B7A00; }
+[data-theme="light"] .ap-timeline-year { color: #6B7A00; }
+[data-theme="light"] .ap-award-row:hover .ap-award-title { color: #6B7A00; }
+
+/* Work */
+[data-theme="light"] .wp-project-cat { color: #6B7A00; }
+[data-theme="light"] .wp-case-outcome-label { color: #6B7A00; }
+[data-theme="light"] .wp-service-row:hover .wp-service-title { color: #6B7A00; }
+[data-theme="light"] .wp-service-row:hover .wp-service-arrow { color: #6B7A00; }
+
+/* Nav links */
+[data-theme="light"] .nav-links a.active { color: #6B7A00; }
+[data-theme="light"] .cp-nav-link--active { color: #6B7A00 !important; }
+[data-theme="light"] .sdp-back-link:hover { color: #6B7A00; }
+
+/* text-link */
+[data-theme="light"] .text-link:hover { color: #6B7A00; }
+
+/* Footer */
+[data-theme="light"] .footer-col a:hover,
+[data-theme="light"] .footer-bottom-links a:hover { color: #6B7A00; }
+[data-theme="light"] .footer-input:focus { border-color: #6B7A00; }
 
 /* ── Theme toggle button ─────────────────────────────────────────── */
 .theme-toggle {
