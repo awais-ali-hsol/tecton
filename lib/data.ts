@@ -95,6 +95,33 @@ export const projects = [
     image: "/assets/portfolio-splashark.jpg",
     url: "https://splashark.com/",
   },
+  {
+    category: "Mobile App / SaaS",
+    title: "GenixDrive",
+    description: "Smart driving companion app with real-time safety alerts and family location sharing.",
+    tags: ["React Native", "Node.js", "Mobile"],
+    detail: "GenixDrive combines real-time safety alerts, family location sharing and driving rewards into one complete companion app — with 10K+ active users and 50K+ downloads.",
+    image: "/assets/portfolio-genixdrive.jpg",
+    url: "https://genix-drive.vercel.app/",
+  },
+  {
+    category: "FinTech / SaaS",
+    title: "Buzdy",
+    description: "Financial comparison platform for 2,000+ credit cards and loans across 60+ countries.",
+    tags: ["Next.js", "Data Platform", "FinTech"],
+    detail: "Buzdy is an everyday money companion that lets users compare financial products, explore markets, manage card wallets and build better money habits — spanning 607+ banks in 62 countries.",
+    image: "/assets/portfolio-buzdy.jpg",
+    url: "https://buzdy.com/",
+  },
+  {
+    category: "E-commerce",
+    title: "Rehmat Store",
+    description: "Multi-category e-commerce store built on Shopify for the Pakistani market.",
+    tags: ["Shopify", "E-commerce", "Custom Theme"],
+    detail: "A full-featured Shopify storefront for Rehmat Store Pakistan — spanning art supplies, camping gear, self-defence, perfumes and accessories with a striking dark editorial design.",
+    image: "/assets/portfolio-rehmatstore.jpg",
+    url: "https://rehmatstore.pk/",
+  },
 ];
 
 export const stats = [
