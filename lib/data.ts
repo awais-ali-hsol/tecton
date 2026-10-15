@@ -38,7 +38,7 @@ export const projects = [
     description: "Hot yoga studio website with booking, membership and community features.",
     tags: ["Web Design", "Booking System", "WordPress"],
     detail: "A full-featured digital presence for a hot yoga studio in Aachen — seamless class bookings, membership flows and a community hub in one polished experience.",
-    image: "/assets/imgi_15_project1-672x448.webp",
+    image: "/assets/portfolio-warungyoga.jpg",
     url: "https://warungyoga.de/",
   },
   {
@@ -47,7 +47,7 @@ export const projects = [
     description: "Property listing platform built for speed, trust and conversion.",
     tags: ["Next.js", "React", "PostgreSQL"],
     detail: "A modern real estate platform that makes finding, listing and comparing properties fast and frictionless — designed for agents and buyers alike.",
-    image: "/assets/imgi_20_project3-550x550.webp",
+    image: "/assets/portfolio-irealtors.jpg",
     url: "https://i-realtors.com/",
   },
   {
@@ -56,7 +56,7 @@ export const projects = [
     description: "Meal prep delivery service with subscription ordering and custom plans.",
     tags: ["E-commerce", "Shopify", "Custom UI"],
     detail: "A high-conversion storefront for a meal prep delivery brand — tailored plans, subscription management and a checkout flow optimised for repeat orders.",
-    image: "/assets/imgi_18_project5-550x550.webp",
+    image: "/assets/portfolio-atlantamealprep.jpg",
     url: "https://atlantamealprep.com/",
   },
   {
@@ -65,7 +65,7 @@ export const projects = [
     description: "Online IQ testing platform with instant results and downloadable certificates.",
     tags: ["React", "Node.js", "PDF Generation"],
     detail: "A scientifically-grounded IQ assessment platform delivering instant results, detailed score breakdowns and verified certificates — built to scale to millions of tests.",
-    image: "/assets/imgi_15_project1-672x448.webp",
+    image: "/assets/portfolio-iqspark.jpg",
     url: "https://iqspark.org/",
   },
   {
@@ -74,7 +74,7 @@ export const projects = [
     description: "Global freedom index and news platform tracking civil liberties by country.",
     tags: ["Next.js", "Data Viz", "CMS"],
     detail: "An editorial platform tracking civil liberties and freedom metrics across countries — live rankings, data visualisation and long-form journalism in one place.",
-    image: "/assets/imgi_20_project3-550x550.webp",
+    image: "/assets/portfolio-leagueofnations.jpg",
     url: "https://leagueofnations.co.uk/",
   },
   {
@@ -83,16 +83,16 @@ export const projects = [
     description: "Employee scheduling and workforce management platform with a companion app.",
     tags: ["React Native", "Node.js", "AWS"],
     detail: "A next-gen workforce platform combining intuitive shift scheduling, live attendance tracking and task delegation — available on web and iOS.",
-    image: "/assets/imgi_18_project5-550x550.webp",
+    image: "/assets/portfolio-shift2go.jpg",
     url: "https://www.shift2go.io/",
   },
   {
-    category: "Entertainment",
+    category: "Marketplace / SaaS",
     title: "SplaShark",
-    description: "Water park experience and ticketing platform with event management.",
-    tags: ["Next.js", "Ticketing", "Custom UI"],
-    detail: "A vibrant digital experience for a water park — event discovery, ticket purchasing, capacity management and an engaging brand presence built for families.",
-    image: "/assets/imgi_15_project1-672x448.webp",
+    description: "All-in-one platform to sell services, take bookings and go live — get paid in one app.",
+    tags: ["React Native", "Node.js", "Payments"],
+    detail: "SplaShark is a storefront, booking desk and payment system in one — enabling creators and service providers to sell, book and go live from a single feed.",
+    image: "/assets/portfolio-splashark.jpg",
     url: "https://splashark.com/",
   },
 ];
