@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { ArrowUpRight } from "lucide-react";
 import { team, stats, awards } from "@/lib/data";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "About Us | Tecton Solutions",
@@ -33,13 +35,13 @@ export default function AboutPage() {
       <nav className="sdp-nav">
         <div className="sdp-nav-inner">
           <Link href="/" className="sdp-nav-logo" aria-label="Tecton Solutions home">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={140} height={38}
-              style={{ filter: "brightness(0) invert(1)" }} priority />
+            <Logo width={140} />
           </Link>
           <div className="cp-nav-links">
             <Link href="/about" className="cp-nav-link cp-nav-link--active">About</Link>
             <Link href="/work" className="cp-nav-link">Our Work</Link>
             <Link href="/contact" className="cp-nav-link">Contact</Link>
+            <ThemeToggle />
           </div>
         </div>
       </nav>
@@ -218,8 +220,7 @@ export default function AboutPage() {
       <footer className="sdp-footer">
         <div className="container sdp-footer-inner">
           <Link href="/" aria-label="Tecton Solutions home">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={120} height={32}
-              style={{ filter: "brightness(0) invert(1)", opacity: 0.6 }} />
+            <Logo width={120} style={{ opacity: 0.6 }} />
           </Link>
           <span className="sdp-footer-copy">© {new Date().getFullYear()} Tecton Solutions. All rights reserved.</span>
           <Link href="/contact" className="btn" style={{ height: "48px", padding: "6px 6px 6px 20px", fontSize: "13px" }}>

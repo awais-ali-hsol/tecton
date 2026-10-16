@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback, RefObject } from "react";
 import Image from "next/image";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { Logo } from "@/components/Logo";
 import {
   services,
   projects,
@@ -223,7 +225,7 @@ function Navbar() {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="container nav-inner">
           <a href="/" className="nav-logo" aria-label="Tecton Solutions">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={160} height={42} priority style={{ filter: "brightness(0) invert(1)" }} />
+            <Logo width={160} />
           </a>
           <div className="nav-links">
             {navLinks.map(({ label, href }) => (
@@ -231,6 +233,7 @@ function Navbar() {
             ))}
           </div>
           <div className="nav-actions">
+            <ThemeToggle />
             <button className="btn" onClick={handleContact}>
               Start a Project
               <span className="btn-icon"><ArrowRight /></span>
@@ -446,7 +449,7 @@ function CaseStudies() {
             <span className="btn-icon"><ArrowRight /></span>
           </a>
         </div>
-        {projects.map((proj, i) => (
+        {projects.slice(0, 3).map((proj, i) => (
           <div key={proj.title} className="case-row reveal" style={{ "--reveal-delay": i * 100 } as React.CSSProperties}>
             <div className="case-img-wrap">
               <Image
@@ -465,8 +468,8 @@ function CaseStudies() {
                   <span key={t} className="case-tag">{t}</span>
                 ))}
               </div>
-              <a href="/work" className="text-link">
-                View Case Study <ArrowUpRight size={13} />
+              <a href={proj.url} target="_blank" rel="noopener noreferrer" className="text-link">
+                View Live Site <ArrowUpRight size={13} />
               </a>
             </div>
           </div>
@@ -733,7 +736,7 @@ function Footer() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      window.location.href = `mailto:hello@tectonsolutions.com?subject=Newsletter&body=Please add ${email} to your newsletter.`;
+      window.location.href = `mailto:info@tectonsolutions.com?subject=Newsletter&body=Please add ${email} to your newsletter.`;
       setEmail("");
     }
   };
@@ -769,11 +772,11 @@ function Footer() {
             </form>
             <div style={{ display: "flex", gap: "12px", marginTop: "8px" }}>
               <a
-                href="mailto:hello@tectonsolutions.com"
+                href="mailto:info@tectonsolutions.com"
                 className="btn"
                 style={{ height: "52px", padding: "6px 6px 6px 18px", fontSize: "14px" }}
               >
-                hello@tectonsolutions.com
+                info@tectonsolutions.com
                 <span className="btn-icon" style={{ width: "40px", height: "40px" }}>
                   <ArrowUpRight size={14} />
                 </span>
@@ -784,7 +787,7 @@ function Footer() {
 
         <div className="footer-cols">
           <div className="footer-brand">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={140} height={36} style={{ filter: "brightness(0) invert(1)" }} />
+            <Logo width={140} />
             <p>
               We build modern digital products for growing businesses — from custom
               software and SaaS to AI-powered tools.
@@ -826,7 +829,7 @@ function Footer() {
             <h4>Get in Touch</h4>
             <div className="footer-contact-row">
               <span>Email</span>
-              <a href="mailto:hello@tectonsolutions.com">hello@tectonsolutions.com</a>
+              <a href="mailto:info@tectonsolutions.com">info@tectonsolutions.com</a>
             </div>
             <div className="footer-contact-row">
               <span>Phone</span>

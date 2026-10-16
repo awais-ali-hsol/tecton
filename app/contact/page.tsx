@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { ArrowUpRight, Mail, MapPin, Phone, CheckCircle2 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@tectonsolutions.com", href: "mailto:hello@tectonsolutions.com" },
+  { icon: Mail, label: "Email", value: "info@tectonsolutions.com", href: "mailto:info@tectonsolutions.com" },
   { icon: Phone, label: "Phone", value: "+1 (555) 234-5678", href: "tel:+15552345678" },
   { icon: MapPin, label: "Office", value: "350 Fifth Avenue, New York, NY 10118", href: "#" },
 ];
@@ -37,13 +38,13 @@ export default function ContactPage() {
       <nav className="sdp-nav">
         <div className="sdp-nav-inner">
           <Link href="/" className="sdp-nav-logo" aria-label="Tecton Solutions home">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={140} height={38}
-              style={{ filter: "brightness(0) invert(1)" }} priority />
+            <Logo width={140} />
           </Link>
           <div className="cp-nav-links">
             <Link href="/about" className="cp-nav-link">About</Link>
             <Link href="/work" className="cp-nav-link">Our Work</Link>
             <Link href="/contact" className="cp-nav-link cp-nav-link--active">Contact</Link>
+            <ThemeToggle />
           </div>
         </div>
       </nav>
@@ -182,8 +183,7 @@ export default function ContactPage() {
       <footer className="sdp-footer">
         <div className="container sdp-footer-inner">
           <Link href="/" aria-label="Tecton Solutions home">
-            <Image src="/tecton-logoo.svg" alt="Tecton Solutions" width={120} height={32}
-              style={{ filter: "brightness(0) invert(1)", opacity: 0.6 }} />
+            <Logo width={120} style={{ opacity: 0.6 }} />
           </Link>
           <span className="sdp-footer-copy">© {new Date().getFullYear()} Tecton Solutions. All rights reserved.</span>
           <Link href="/" className="btn" style={{ height: "48px", padding: "6px 6px 6px 20px", fontSize: "13px" }}>

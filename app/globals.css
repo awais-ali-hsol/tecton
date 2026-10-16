@@ -153,7 +153,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 0;
 }
 .nav-logo { flex-shrink: 0; }
-.nav-logo img { height: 42px; width: auto; }
+.nav-logo img, .nav-logo svg { height: 42px; width: auto; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -1140,7 +1140,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-bottom: 1px solid var(--color-border-subtle);
 }
 .footer-brand { display: flex; flex-direction: column; }
-.footer-brand img { height: 36px; width: auto; }
+.footer-brand img, .footer-brand svg { height: 36px; width: auto; }
 .footer-brand p {
   font-size: 14px;
   color: var(--color-text-dim);
@@ -1327,7 +1327,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-inline: auto; display: flex; align-items: center; justify-content: space-between;
 }
 .sdp-nav-logo { display: flex; align-items: center; }
-.sdp-nav-logo img { height: 38px; width: auto; }
+.sdp-nav-logo img, .sdp-nav-logo svg { height: 38px; width: auto; }
 .sdp-back-link {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
@@ -1987,7 +1987,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .wp-case-outcome-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 8px; }
 .wp-case-outcome-text { font-size: 14px; line-height: 1.65; color: var(--color-text); }
-.wp-case-cta { align-self: flex-start; }
+.wp-case-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; align-self: flex-start; }
 
 /* Projects grid */
 .wp-grid-section { padding: var(--section-y) 0; border-top: 1px solid var(--color-border-subtle); }
@@ -2002,6 +2002,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .wp-project-img { position: relative; height: 220px; overflow: hidden; }
 .wp-project-img img { transition: transform 400ms ease; }
 .wp-project-card:hover .wp-project-img img { transform: scale(1.05); }
+.wp-project-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.5) 100%);
+  transition: opacity 300ms ease;
+}
+.wp-project-link-badge {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  display: grid; place-items: center; width: 32px; height: 32px;
+  border-radius: 50%; background: var(--color-primary); color: var(--color-on-primary);
+  opacity: 0; transform: scale(0.7);
+  transition: opacity 250ms ease, transform 250ms cubic-bezier(0.34,1.56,0.64,1);
+}
+.wp-project-card:hover .wp-project-link-badge { opacity: 1; transform: scale(1); }
 .wp-project-info { padding: 24px; }
 .wp-project-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); display: block; margin-bottom: 8px; }
 .wp-project-title { font-size: 18px; font-weight: 700; color: var(--color-text); margin-bottom: 12px; letter-spacing: -0.01em; }
@@ -2374,4 +2387,208 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .blog-card:hover, .team-card:hover {
     transform: none !important;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   LIGHT MODE
+   Override only tokens + the handful of hardcoded rgba(10,10,10,*) / rgba(255,*)
+   values that live outside photo-overlay contexts (photo overlays deliberately
+   stay dark so text on photos stays readable in both themes).
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  /* ── Surfaces ──────────────────────────────────────────────── */
+  --color-bg:             #F5F5F1;
+  --color-surface:        #FFFFFF;
+  --color-surface-raised: #EDEDE8;
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --color-text:        #1A1A18;
+  --color-text-strong: #0A0A0A;
+  --color-text-muted:  #5C5D57;
+  --color-text-dim:    #8A8B85;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --color-border:        #D4D5CF;
+  --color-border-subtle: #E2E3DD;
+
+  /* ── Outlined text on page bg (not on photos) ──────────────── */
+  --color-outline: rgba(0, 0, 0, 0.10);
+
+  /* ── Lime: darkened for text/icon use on light surfaces ─────── */
+  /* btn bg and marquee still use the full-brightness lime;        */
+  /* text/icon uses inherit via --color-primary which we keep      */
+  /* bright but override per-selector below where contrast fails.  */
+}
+
+
+/* ── Navbar / mobile menu backgrounds ──────────────────────────── */
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(245, 245, 241, 0.92);
+}
+[data-theme="light"] .mobile-menu {
+  background: rgba(245, 245, 241, 0.97);
+}
+[data-theme="light"] .sdp-nav {
+  background: rgba(245, 245, 241, 0.92);
+}
+
+/* ── Outlined bg-words that sit on the page color (not on photos) */
+/* contact + work hero bg-words */
+[data-theme="light"] .cp-hero-bg-word,
+[data-theme="light"] .wp-hero-bg-word {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.06);
+}
+/* work page outlined headline */
+[data-theme="light"] .wp-h1-outline {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.15);
+}
+/* about CTA bg-word (sits on --color-surface) */
+[data-theme="light"] .ap-cta-bg-word {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ── Client logos: brighten to dark on light bg ─────────────────── */
+[data-theme="light"] .client-tile img {
+  filter: grayscale(100%) brightness(0);
+  opacity: 0.25;
+}
+[data-theme="light"] .client-tile:hover img { opacity: 0.45; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHT MODE — photo-section text locks
+   Sections with dark photo overlays (hero, photo-band) keep white
+   text regardless of theme, because the visual background is always
+   dark photo. Token-based colours would turn dark in light mode
+   and become invisible.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero: keep white on dark photo overlay ────────────────── */
+[data-theme="light"] .hero-h1 .line-white { color: #ffffff; }
+[data-theme="light"] .hero-desc           { color: rgba(255,255,255,0.72); }
+[data-theme="light"] .hero-proof-text strong { color: #ffffff; }
+[data-theme="light"] .hero-proof-text span   { color: rgba(255,255,255,0.55); }
+[data-theme="light"] .hero-mini-stat strong  { color: #ffffff; }
+[data-theme="light"] .hero-mini-stat span    { color: rgba(255,255,255,0.55); }
+[data-theme="light"] .hero-mini-sep          { background: rgba(255,255,255,0.18); }
+[data-theme="light"] .hero-tag               { color: rgba(255,255,255,0.45); }
+[data-theme="light"] .hero .btn-outline {
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.3);
+}
+[data-theme="light"] .hero .btn-outline:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ── Navbar over photo (unscrolled = transparent) ──────────── */
+[data-theme="light"] .navbar:not(.scrolled) .nav-links a  { color: rgba(255,255,255,0.65); }
+[data-theme="light"] .navbar:not(.scrolled) .nav-links a:hover { color: #ffffff; }
+[data-theme="light"] .navbar:not(.scrolled) .nav-links a.active { color: var(--color-primary); }
+
+[data-theme="light"] .navbar:not(.scrolled) .nav-search-btn { color: rgba(255,255,255,0.65); }
+[data-theme="light"] .navbar:not(.scrolled) .menu-toggle   { color: rgba(255,255,255,0.75); }
+[data-theme="light"] .navbar:not(.scrolled) .theme-toggle  {
+  color: rgba(255,255,255,0.65);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* ── Photo band: keep white on dark photo overlay ──────────── */
+[data-theme="light"] .photo-band-h2 { color: #ffffff; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIGHT MODE — lime contrast fixes
+   Lime #D9F45F on white/light bg = ~1.3:1 contrast (invisible).
+   Override to a dark olive-green (#6B7A00) for icon, text and
+   accent uses on light surfaces. Lime still appears full-bright on
+   dark overlays / as button backgrounds.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Darker lime for text/icon on light surfaces */
+[data-theme="light"] .svc-icon {
+  background: rgba(90,110,0,0.09);
+  color: #6B7A00;
+}
+[data-theme="light"] .svc-card:hover .svc-icon { background: rgba(90,110,0,0.15); }
+[data-theme="light"] .svc-link         { color: #8A8B85; }
+[data-theme="light"] .svc-card:hover .svc-link { color: #6B7A00; }
+
+/* Stats section */
+[data-theme="light"] .stat-num .suf { color: #6B7A00; }
+
+/* Cases */
+[data-theme="light"] .case-cat { color: #6B7A00; }
+
+/* Testimonials rating */
+[data-theme="light"] .rating-num  { color: #6B7A00; }
+[data-theme="light"] .rating-stars { color: #6B7A00; }
+
+/* Awards */
+[data-theme="light"] .award-row:hover .award-title { color: #6B7A00; }
+
+/* Blog */
+[data-theme="light"] .blog-cat { color: #6B7A00; }
+
+/* Eyebrow + prefix */
+[data-theme="light"] .eyebrow::before { color: #6B7A00; }
+
+/* Section h2 lime spans */
+[data-theme="light"] .section-h2 .lime,
+[data-theme="light"] .cases-h2 .lime,
+[data-theme="light"] .cta-band-h2 .lime,
+[data-theme="light"] .footer-headline .lime,
+[data-theme="light"] .photo-band-h2 .lime { color: var(--color-primary); } /* lime on dark = ok */
+
+/* sdp pages */
+[data-theme="light"] .sdp-lime  { color: #6B7A00; }
+[data-theme="light"] .sdp-exp-num { color: #6B7A00; }
+
+/* Contact */
+[data-theme="light"] .cp-h1-lime { color: #6B7A00; }
+[data-theme="light"] .cp-contact-icon { background: rgba(90,110,0,0.09); color: #6B7A00; }
+[data-theme="light"] .cp-aside-promise strong { color: #6B7A00; }
+
+/* About */
+[data-theme="light"] .ap-stat-value   { color: #6B7A00; }
+[data-theme="light"] .ap-value-num    { color: #6B7A00; }
+[data-theme="light"] .ap-timeline-year { color: #6B7A00; }
+[data-theme="light"] .ap-award-row:hover .ap-award-title { color: #6B7A00; }
+
+/* Work */
+[data-theme="light"] .wp-project-cat { color: #6B7A00; }
+[data-theme="light"] .wp-case-outcome-label { color: #6B7A00; }
+[data-theme="light"] .wp-service-row:hover .wp-service-title { color: #6B7A00; }
+[data-theme="light"] .wp-service-row:hover .wp-service-arrow { color: #6B7A00; }
+
+/* Nav links */
+[data-theme="light"] .nav-links a.active { color: #6B7A00; }
+[data-theme="light"] .cp-nav-link--active { color: #6B7A00 !important; }
+[data-theme="light"] .sdp-back-link:hover { color: #6B7A00; }
+
+/* text-link */
+[data-theme="light"] .text-link:hover { color: #6B7A00; }
+
+/* Footer */
+[data-theme="light"] .footer-col a:hover,
+[data-theme="light"] .footer-bottom-links a:hover { color: #6B7A00; }
+[data-theme="light"] .footer-input:focus { border-color: #6B7A00; }
+
+/* ── Theme toggle button ─────────────────────────────────────────── */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background: transparent;
+  transition: color var(--transition), border-color var(--transition),
+              transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.1);
 }
