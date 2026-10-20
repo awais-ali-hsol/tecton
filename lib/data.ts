@@ -31,10 +31,15 @@ export const process = [
   ["06", "Optimize", "Continuously improve performance and business results."],
 ];
 
+export type ProjectKind = "Web" | "SaaS" | "Mobile" | "Commerce";
+
 export const projects = [
   {
     category: "Health & Wellness",
     title: "Warung Yoga",
+    stage: { bg: "#3a2e24", tone: "light" as "light" | "dark" },
+    year: "2025",
+    kind: "Web" as ProjectKind,
     description: "Hot yoga studio website with booking, membership and community features.",
     tags: ["Web Design", "Booking System", "WordPress"],
     detail: "A full-featured digital presence for a hot yoga studio in Aachen — seamless class bookings, membership flows and a community hub in one polished experience.",
@@ -44,6 +49,9 @@ export const projects = [
   {
     category: "Real Estate",
     title: "iRealtors",
+    stage: { bg: "#e2d6c2", tone: "dark" as "light" | "dark" },
+    year: "2024",
+    kind: "Web" as ProjectKind,
     description: "Property listing platform built for speed, trust and conversion.",
     tags: ["Next.js", "React", "PostgreSQL"],
     detail: "A modern real estate platform that makes finding, listing and comparing properties fast and frictionless — designed for agents and buyers alike.",
@@ -53,6 +61,9 @@ export const projects = [
   {
     category: "Food & E-commerce",
     title: "Atlanta Meal Prep",
+    stage: { bg: "#22304d", tone: "light" as "light" | "dark" },
+    year: "2024",
+    kind: "Commerce" as ProjectKind,
     description: "Meal prep delivery service with subscription ordering and custom plans.",
     tags: ["E-commerce", "Shopify", "Custom UI"],
     detail: "A high-conversion storefront for a meal prep delivery brand — tailored plans, subscription management and a checkout flow optimised for repeat orders.",
@@ -62,6 +73,9 @@ export const projects = [
   {
     category: "EdTech / SaaS",
     title: "IQSpark",
+    stage: { bg: "#1f3b36", tone: "light" as "light" | "dark" },
+    year: "2025",
+    kind: "SaaS" as ProjectKind,
     description: "Online IQ testing platform with instant results and downloadable certificates.",
     tags: ["React", "Node.js", "PDF Generation"],
     detail: "A scientifically-grounded IQ assessment platform delivering instant results, detailed score breakdowns and verified certificates — built to scale to millions of tests.",
@@ -71,6 +85,9 @@ export const projects = [
   {
     category: "Media & Publishing",
     title: "League of Nations",
+    stage: { bg: "#5a211c", tone: "light" as "light" | "dark" },
+    year: "2023",
+    kind: "Web" as ProjectKind,
     description: "Global freedom index and news platform tracking civil liberties by country.",
     tags: ["Next.js", "Data Viz", "CMS"],
     detail: "An editorial platform tracking civil liberties and freedom metrics across countries — live rankings, data visualisation and long-form journalism in one place.",
@@ -80,6 +97,9 @@ export const projects = [
   {
     category: "SaaS / Mobile App",
     title: "Shift2Go",
+    stage: { bg: "#ccd3df", tone: "dark" as "light" | "dark" },
+    year: "2025",
+    kind: "SaaS" as ProjectKind,
     description: "Employee scheduling and workforce management platform with a companion app.",
     tags: ["React Native", "Node.js", "AWS"],
     detail: "A next-gen workforce platform combining intuitive shift scheduling, live attendance tracking and task delegation — available on web and iOS.",
@@ -89,6 +109,9 @@ export const projects = [
   {
     category: "Marketplace / SaaS",
     title: "SplaShark",
+    stage: { bg: "#133a52", tone: "light" as "light" | "dark" },
+    year: "2026",
+    kind: "Mobile" as ProjectKind,
     description: "All-in-one platform to sell services, take bookings and go live — get paid in one app.",
     tags: ["React Native", "Node.js", "Payments"],
     detail: "SplaShark is a storefront, booking desk and payment system in one — enabling creators and service providers to sell, book and go live from a single feed.",
@@ -98,6 +121,9 @@ export const projects = [
   {
     category: "Mobile App / SaaS",
     title: "GenixDrive",
+    stage: { bg: "#2b2b28", tone: "light" as "light" | "dark" },
+    year: "2025",
+    kind: "Mobile" as ProjectKind,
     description: "Smart driving companion app with real-time safety alerts and family location sharing.",
     tags: ["React Native", "Node.js", "Mobile"],
     detail: "GenixDrive combines real-time safety alerts, family location sharing and driving rewards into one complete companion app — with 10K+ active users and 50K+ downloads.",
@@ -107,6 +133,9 @@ export const projects = [
   {
     category: "FinTech / SaaS",
     title: "Buzdy",
+    stage: { bg: "#c5d6c8", tone: "dark" as "light" | "dark" },
+    year: "2026",
+    kind: "SaaS" as ProjectKind,
     description: "Financial comparison platform for 2,000+ credit cards and loans across 60+ countries.",
     tags: ["Next.js", "Data Platform", "FinTech"],
     detail: "Buzdy is an everyday money companion that lets users compare financial products, explore markets, manage card wallets and build better money habits — spanning 607+ banks in 62 countries.",
@@ -116,6 +145,9 @@ export const projects = [
   {
     category: "E-commerce",
     title: "Rehmat Store",
+    stage: { bg: "#b9a68b", tone: "dark" as "light" | "dark" },
+    year: "2026",
+    kind: "Commerce" as ProjectKind,
     description: "Multi-category e-commerce store built on Shopify for the Pakistani market.",
     tags: ["Shopify", "E-commerce", "Custom Theme"],
     detail: "A full-featured Shopify storefront for Rehmat Store Pakistan — spanning art supplies, camping gear, self-defence, perfumes and accessories with a striking dark editorial design.",
@@ -144,6 +176,20 @@ export const testimonials = [
     role: "Co-Founder & CEO",
     company: "Elevate Ventures",
     avatar: "/assets/imgi_33_tm-3h2.webp",
+  },
+  {
+    quote: "They ran discovery like a strategy partner and shipped like a seasoned product team. Checkout conversion rose 31% in the first quarter after launch.",
+    name: "Lena Fischer",
+    role: "Founder",
+    company: "Northwind Commerce",
+    avatar: "/assets/imgi_27_test1.webp",
+  },
+  {
+    quote: "A rare mix: designers who understand systems and engineers who care about pixels. Tecton is now our default partner for anything customer-facing.",
+    name: "Daniel Okafor",
+    role: "VP Product",
+    company: "Kinetic Health",
+    avatar: "/assets/imgi_26_test3.webp",
   },
 ];
 
@@ -216,3 +262,36 @@ export const serviceDetails: Record<string, { capabilities: string[]; experience
   "system-integration": { capabilities: ["Integration architecture", "REST, GraphQL and webhook connections", "Data synchronization and transformation", "Third-party service orchestration", "Failure handling and reconciliation"], experience: ["Connecting tools that were never designed to work together", "Removing duplicate data entry across teams", "Creating one dependable flow through a fragmented stack"], deliverables: ["Integration map", "Connected services", "Monitoring and failure recovery"], bestFor: "Businesses with multiple systems that need to share data and context." },
   "performance-optimization": { capabilities: ["Core Web Vitals improvement", "Frontend bundle and rendering analysis", "Backend and database profiling", "Load and stress testing", "Conversion-path performance review"], experience: ["Finding the bottleneck behind a slow experience", "Preparing a growing product for higher traffic", "Improving speed in the workflows that matter most"], deliverables: ["Performance baseline", "Prioritized optimization plan", "Measured improvement report"], bestFor: "Products where speed, reliability or conversion has become a business constraint." },
 };
+
+export const processSteps = [
+  { number: "01", title: "Discover", duration: "Week 1", body: "Workshops with your team and users to map goals, constraints and the outcomes that actually matter." },
+  { number: "02", title: "Strategize", duration: "Week 2", body: "Architecture, scope and a phased roadmap — so every decision after this point has a reason behind it." },
+  { number: "03", title: "Design", duration: "Weeks 3–5", body: "Flows, prototypes and a visual system tested with real users before a line of production code is written." },
+  { number: "04", title: "Develop", duration: "Weeks 5–12", body: "Two-week sprints, weekly demos and production-grade code reviewed, tested and documented as we go." },
+  { number: "05", title: "Launch", duration: "Week 13", body: "Staged rollout, monitoring and a calm launch day — with the team that built it on call." },
+  { number: "06", title: "Optimize", duration: "Ongoing", body: "Analytics, iteration and performance work that compounds the value of what we shipped together." },
+];
+
+export const contact = {
+  email: "info@tectonsolutions.com",
+  phone: "+1 (555) 234-5678",
+  phoneHref: "tel:+15552345678",
+  address: "350 Fifth Avenue, New York, NY 10118",
+  timezone: "America/New_York",
+};
+
+// Placeholder profile URLs — replace with the real accounts before launch.
+export const socials = [
+  { label: "LinkedIn", href: "#" },
+  { label: "Instagram", href: "#" },
+  { label: "Dribbble", href: "#" },
+  { label: "Clutch", href: "#" },
+];
+
+export const faqs = [
+  { q: "How soon can you start?", a: "Most engagements kick off within two to three weeks of a signed proposal. For urgent work we keep a small amount of capacity open each quarter — ask and we will be honest about what is possible." },
+  { q: "Do you work with early-stage startups?", a: "Yes. Roughly a third of our work is with founders shipping a first version. We help shape a focused MVP, then stay on to scale it once it finds traction." },
+  { q: "What does a typical engagement cost?", a: "Focused projects usually start around $25k; full product builds typically land between $75k and $250k. After a short discovery call we send a fixed-scope proposal, not an open-ended estimate." },
+  { q: "Can you take over an existing codebase?", a: "Often. We start with a paid technical audit, share an honest assessment of what to keep, refactor or replace, and only then propose a plan." },
+  { q: "Will you sign an NDA?", a: "Of course. We are happy to sign your NDA before any detailed conversation, or share ours." },
+];
