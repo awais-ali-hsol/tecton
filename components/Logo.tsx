@@ -6,57 +6,28 @@ interface LogoProps {
   style?: CSSProperties;
 }
 
-/**
- * Inline SVG logo — currentColor for text/icon adapts to dark/light theme,
- * lime #D9F45F accent is hardcoded so it always shows without CSS filters.
- */
-export function Logo({ width = 160, className, style }: LogoProps) {
-  const height = Math.round(width * (42 / 160));
+/** Wordmark inherits currentColor; the inner plate uses the brand signal color. */
+export function Logo({ width = 148, className, style }: LogoProps) {
+  const height = Math.round(width * (36 / 148));
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 160 42"
+      viewBox="0 0 148 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       style={style}
-      aria-label="Tecton Solutions"
       role="img"
+      aria-label="Tecton Solutions"
     >
-      {/* Outer hexagon — inherits currentColor from CSS */}
-      <polygon
-        points="33,18 25.5,5 10.5,5 3,18 10.5,31 25.5,31"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      {/* Lime accent inner hex — always visible in both themes */}
-      <polygon points="25,14 18,10 11,14 11,22 18,26 25,22" fill="#D9F45F" />
-      {/* TECTON */}
-      <text
-        x="44"
-        y="23"
-        fontSize="17"
-        fontWeight="700"
-        fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
-        letterSpacing="0.08em"
-        fill="currentColor"
-      >
-        TECTON
+      <polygon points="29,18 22.5,6.7 9.5,6.7 3,18 9.5,29.3 22.5,29.3" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <polygon points="21.5,14.2 16,11 10.5,14.2 10.5,20.6 16,23.8 21.5,20.6" style={{ fill: "var(--signal, #FF4F1F)" }} />
+      <text x="40" y="23.5" fontSize="17" fontWeight="600" letterSpacing="-0.02em" fill="currentColor" style={{ fontFamily: "var(--sans)" }}>
+        Tecton
       </text>
-      {/* SOLUTIONS */}
-      <text
-        x="45"
-        y="34"
-        fontSize="8"
-        fontWeight="600"
-        fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
-        letterSpacing="0.26em"
-        fill="currentColor"
-        opacity="0.5"
-      >
-        SOLUTIONS
+      <text x="98" y="23.5" fontSize="9" letterSpacing="0.08em" fill="currentColor" opacity="0.55" style={{ fontFamily: "var(--mono)" }}>
+        ®
       </text>
     </svg>
   );

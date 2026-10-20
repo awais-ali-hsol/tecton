@@ -1,823 +1,400 @@
 # Website Design System / Style Guide
-## Dark Creative Digital Agency — based on the supplied screenshot
+## Fresh Premium Light Theme — "Editorial Light" (v2)
 
-> **Precision note:** The screenshot is a raster image, so dimensions, radii, spacing, and typography are close visual estimates. The principal lime accent, near-black backgrounds, and major layout proportions were measured from the reference. The exact typeface and interaction states cannot be confirmed from a static capture.
+> **Change summary (v1 → v2):** The previous system was a near-black "acid-lime agency" theme.
+> This version replaces it with a fresh, light, premium visual identity synthesized from the
+> reference screenshots: the warm off-white canvas + rounded cards + soft shadows of the
+> real-estate and flight references, and the bold display typography + deep forest-green
+> depth of the adventure reference. Content and functionality are unchanged — only the
+> visual layer is redefined below.
 
-### 1. Overall Design Direction
+---
 
-#### Design character
-This is a premium dark creative-agency design with a bold digital/editorial personality.
+## 1. Overall Design Direction
+
+### Design character
+A light, airy, premium editorial theme with confident accent color.
 
 **Core characteristics:**
-- Near-black, image-heavy atmosphere
-- Oversized geometric typography
-- High-contrast acid-lime accent
-- Sparse white and gray supporting text
-- Asymmetric editorial layouts
-- Large quantities of negative space
-- Mixed solid and outlined display typography
-- Full-bleed photography with dark overlays
-- Thin borders instead of heavy shadows
-- Occasional angular or diagonal lime graphic interruptions
+- Warm off-white canvas with generous white space
+- White floating cards with large radii and soft, warm-tinted shadows
+- One confident primary accent (teal) + one energetic secondary accent (coral)
+- Deep green-ink typography instead of pure black
+- Occasional deep forest-green dark sections for drama and contrast
+- Pill-shaped buttons, rounded image media, circular icon chips
+- Asymmetric editorial headers retained from the previous system
+- Oversized display typography retained, but with a fresher, lighter touch
 
-#### Mood and personality
-The design should feel:
-- Confident
-- Contemporary
-- Creative but disciplined
-- Technical and professional
-- Premium rather than playful
-- Energetic without becoming cluttered
+### Mood and personality
+- Fresh, modern, premium, professional
+- Confident but not loud; energetic but disciplined
+- Warm and approachable (coral warmth) grounded by trust (teal)
 
-#### Visual principles to preserve
-- **Dark-first interface:** Do not introduce a conventional light-theme section.
-- **Typography as decoration:** Large words often function as visual architecture, not merely headings.
-- **One dominant accent:** Lime is reserved for the most important message or action in each area.
-- **Asymmetry:** Headings, paragraphs, stats, media, and CTAs are often split across two unequal columns.
-- **Layering:** Foreground content sits over subtle lime glows, outlined words, photography, or abstract line art.
-- **Restraint:** Despite the dramatic typography, the component styling remains minimal—few shadows, minimal borders, no excessive ornamentation.
-- **Consistency:** Every section uses the same dark foundation, type system, spacing rhythm, and interaction language.
+### What must not be lost (carried over from the current site)
+- Huge, tight display typography and editorial two-column section headers
+- Pill CTAs with circular icon ends
+- Marquee band and outlined display words (restyled for the light theme)
+- Full-bleed imagery and generous section spacing
 
-#### What must not be lost
-- The acid-lime accent
-- The near-black environment
-- Huge uppercase display typography
-- Outlined background words
-- Dark photographic overlays
-- Pill-shaped lime CTAs with circular icon ends
-- Thin dark borders
-- Editorial two-column section headers
-- Full-width imagery
-- High section spacing
+### What is intentionally left behind
+- Near-black page background, acid lime, thin dark borders as the main separator
+- The "one dark theme everywhere" rule — replaced with a light-first system
+  with dark sections used deliberately (hero option, CTA band, footer)
 
 ---
 
-### 2. Color System
+## 2. Color System
 
-#### Primary palette
+### 2.1 Primary palette
 
-| Token | Approx. HEX | Usage |
+| Token | HEX | Usage |
 | :--- | :--- | :--- |
-| Primary lime | `#D9F45F` | Primary CTAs, key heading words, marquee, selected states, stars, focus accents |
-| Primary hover | `#C8E84D` | Estimate for primary button/link hover |
-| Page background | `#0A0A0A` | Main body and default section background |
-| Elevated surface | `#121310` | Cards, testimonial panels, footer, subtle content wells |
-| Raised surface | `#181A17` | Hover states, slightly elevated tiles, nested panels |
-| Primary text | `#F1F1ED` | Main headings and high-emphasis text |
-| Pure highlight | `#FFFFFF` | Small high-emphasis labels and selected text |
-| Body text | `#A0A19A` | Paragraphs and secondary descriptions |
-| Muted text | `#74766F` | Metadata, dates, captions, disabled-looking text |
-| Border | `#2B2C29` | Card borders, dividers, input outlines |
-| Subtle border | `#1D1E1B` | Low-contrast separators on dark surfaces |
-| On-primary text | `#0A0A0A` | Text/icons placed on lime backgrounds |
-| Outline text stroke | `rgba(255,255,255,0.14)` | Giant outlined words |
-| Dark photo overlay | `rgba(10,10,10,0.65–0.85)` | Hero and photographic sections |
-| Lime tint | `rgba(217,244,95,0.10–0.16)` | Subtle background glow or icon tint |
+| `--color-primary` | `#0E9E8C` | Teal — brand accent, icons, highlights, selection, active nav states |
+| `--color-primary-strong` | `#0B7C6D` | Darker teal — primary buttons, link text, hover state (AA-safe with white text) |
+| `--color-primary-soft` | `#E2F4F1` | Teal tint — icon chips, tags, badges, hover wash on light surfaces |
+| `--color-accent` | `#FF6B57` | Coral — energetic secondary accent: underline marks, stars, highlights, small CTAs, marquee separators |
+| `--color-accent-strong` | `#E8503C` | Coral hover/active state (large text & graphics only) |
+| `--color-accent-soft` | `#FFE9E5` | Coral tint — feature callouts, promotional badges |
+| `--color-ink` | `#12201B` | Deep green-black — primary text, headings, logo wordmark |
+| `--color-ink-inverse` | `#FFFFFF` | Text on deep green/teal surfaces |
 
-#### Color usage rules
-- Use `#0A0A0A` for at least 70–80% of the visible page background.
-- Use `#121310` only to distinguish cards, footer panels, or content wells from the page background.
-- Use `#F1F1ED` for headings and important labels.
-- Use `#A0A19A` for paragraphs.
-- Use `#D9F45F` sparingly:
-  - One primary CTA per major section
-  - The most important word in a display heading
-  - Active navigation state
-  - Marquee band
-  - Ratings/stars
-  - Focus and selection states
-- Never use white text on the lime accent. Always use `#0A0A0A`.
-- Never use lime body text for long paragraphs.
-- Never use muted gray for essential CTA text.
-- Borders should remain subtle; avoid bright gray or white borders.
+### 2.2 Neutrals (warm-tinted, never pure gray)
 
-#### Recommended color hierarchy
-- Background: near-black
-- Content surface: dark charcoal-green
-- Primary text: off-white
-- Secondary text: warm gray
-- Accent: lime
-- Dividers: very dark gray
+| Token | HEX | Usage |
+| :--- | :--- | :--- |
+| `--color-background` | `#FAF9F6` | Main page background (warm off-white) |
+| `--color-surface` | `#FFFFFF` | Cards, nav bar, panels, inputs |
+| `--color-surface-alt` | `#F1EFE9` | Subtle wells, alternating rows, footer newsletter field |
+| `--color-border` | `#E6E3DB` | Card borders, dividers, input outlines |
+| `--color-border-strong` | `#D4D0C4` | Hover borders, focused card states |
+| `--color-text` | `#12201B` | Headings, high-emphasis text |
+| `--color-text-muted` | `#5C6660` | Body copy, descriptions (5.9:1 on white — AA) |
+| `--color-text-faint` | `#8A938D` | Captions, metadata, placeholders (large/decorative only) |
 
-#### Gradients and overlays
-There are no broad decorative color gradients. The background depth comes from photography and overlays.
+### 2.3 Dark surfaces (used deliberately, not as default)
 
-Acceptable reconstructed effects:
-```css
-/* Dark photographic overlay */
-background: linear-gradient(
-  90deg,
-  rgba(10, 10, 10, 0.68),
-  rgba(10, 10, 10, 0.88)
-);
+| Token | HEX | Usage |
+| :--- | :--- | :--- |
+| `--color-deep` | `#123B2E` | Forest green — hero option, CTA band, footer |
+| `--color-deep-raised` | `#1B4A3A` | Nested panels on deep surfaces |
+| `--color-deep-text` | `#EDEAE2` | Body text on deep surfaces |
+| `--color-deep-muted` | `#9DB3A9` | Muted text on deep surfaces |
+| `--color-deep-border` | `#2A5646` | Borders/dividers on deep surfaces |
 
-/* Very restrained lime ambience */
-background: radial-gradient(
-  circle at 0% 35%,
-  rgba(217, 244, 95, 0.14),
-  transparent 34%
-);
-```
-These should enhance photography or atmosphere only. Do not create purple, blue, orange, or rainbow gradients.
+### 2.4 Accessibility-verified contrast (WCAG)
 
-#### Colors that should not be introduced
-Avoid introducing new UI colors such as:
-- Bright blue
-- Purple
-- Red
-- Orange
-- Pink
-- Cyan
-- Pastel backgrounds
-- Large white sections
+| Combination | Ratio | Status |
+| :--- | :--- | :--- |
+| Ink `#12201B` on background `#FAF9F6` | 15.98:1 | AAA |
+| Ink on white surface | 16.82:1 | AAA |
+| Muted `#5C6660` on white | 5.96:1 | AA |
+| White on primary-strong `#0B7C6D` | 5.10:1 | AA (buttons) |
+| Primary-strong `#0B7C6D` on background | 4.84:1 | AA (links) |
+| Ink on coral `#FF6B57` | 6.00:1 | AA (accent chips with dark text) |
+| White on deep `#123B2E` | 12.42:1 | AAA |
 
-Photographs may naturally contain other colors, but interface components should remain within the specified palette.
+**Hard rules:**
+- Primary buttons: `#0B7C6D` background + white text — never white on light teal `#0E9E8C`.
+- Coral is never used as button background with white text. Use ink text on coral,
+  or reserve coral for icons, underlines, stars, and large display words.
+- Body text is always `--color-text` or `--color-text-muted` on light surfaces.
+- Never place long-form text on teal/coral tints without ink text.
+
+### 2.5 Color usage rules
+- ~80% of any page is background white/off-white + white surfaces.
+- Teal carries brand meaning: active states, primary actions, key icons.
+- Coral carries energy: ratings, highlights, the "second" emphasis word in display headings,
+  promotional moments. One teal + one coral moment per viewport maximum.
+- Dark green sections appear at most 2× per page (typically hero and/or footer + one CTA band).
+- Photography stays natural and bright — no heavy dark overlays in the light theme;
+  deep sections may use a subtle green gradient overlay at most.
 
 ---
 
-### 3. Typography
+## 3. Typography
 
-#### Font family
-The exact font cannot be identified with certainty from the screenshot.
-
-Recommended closest Google Font:
+### Font family
 ```css
 font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 ```
-Acceptable alternative if a slightly more technical character is desired:
-```css
-font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
-```
-Use one primary typeface consistently for headings, navigation, buttons, and body text. Do not add a second display font.
+One family for everything. Optionally use **Space Grotesk** as the display face for
+giant headings/marquee if a slightly more technical character is wanted.
 
-#### Font characteristics
-- Geometric sans-serif
-- Rounded but not playful
-- Uppercase display headings
-- Tight heading line-height
-- Medium-to-bold weight hierarchy
-- Minimal or slightly negative heading letter spacing
-- Small uppercase labels with wide tracking
+### Type scale
 
-#### Practical type scale
-
-| Level | Desktop size | Weight | Line height | Case / tracking | Usage |
+| Level | Size | Weight | Line height | Case / tracking | Usage |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Hero H1 | `clamp(52px, 7vw, 96px)` | 700 | 0.95–1.0 | Uppercase, -0.02em | Main hero statement |
-| Display background word | `clamp(72px, 9vw, 140px)` | 700 | 0.9–1.0 | Uppercase, -0.02em | Giant section/outlined words |
-| H2 | `clamp(40px, 4.5vw, 64px)` | 600–700 | 1.05 | Sentence or uppercase | Major section headings |
-| H3 | `clamp(28px, 3vw, 36px)` | 600 | 1.12 | Sentence | Feature or content headings |
-| H4 / card title | `clamp(21px, 2vw, 26px)` | 600 | 1.2 | Sentence | Cards, case titles, posts |
-| Large stat | 56–72px | 500–600 | 1.0 | None | Counters and ratings |
-| Lead | 18px | 400–500 | 1.6 | None | Introductory paragraphs |
-| Body | 16px | 400 | 1.65 | None | General paragraphs |
-| Small | 14px | 400–500 | 1.5 | None | Metadata, roles, descriptions |
-| Caption / eyebrow | 12–13px | 500–600 | 1.2 | Uppercase, 0.10–0.14em | Section labels |
-| Navigation | 14px | 500–600 | 1 | Uppercase, 0.06–0.10em | Header and footer navigation |
+| Hero H1 | `clamp(44px, 6vw, 80px)` | 700 | 1.0–1.05 | Sentence or uppercase, -0.02em | Hero statement |
+| Display background word | `clamp(64px, 8vw, 120px)` | 700 | 1.0 | Uppercase, -0.02em | Decorative giant words |
+| H2 | `clamp(34px, 4vw, 56px)` | 700 | 1.1 | Sentence | Section headings |
+| H3 | `clamp(24px, 2.6vw, 32px)` | 600 | 1.15 | Sentence | Feature headings |
+| H4 / card title | `clamp(19px, 1.8vw, 24px)` | 600 | 1.25 | Sentence | Cards, case titles |
+| Large stat | 48–64px | 600 | 1.0 | None | Counters, ratings |
+| Lead | 18px | 400 | 1.65 | None | Section intros |
+| Body | 16px | 400 | 1.65 | None | Paragraphs |
+| Small | 14px | 400–500 | 1.55 | None | Metadata, roles |
+| Caption / eyebrow | 12–13px | 600 | 1.2 | Uppercase, 0.12em | Section labels |
+| Navigation | 14px | 600 | 1 | None | Header/footer nav |
 
-#### Typographic rules
-- Hero line-height should be visually compact: approximately 0.95.
-- Body text should use line-height: 1.6–1.7.
-- Use uppercase only for:
-  - Hero display words
-  - Major display headings
-  - Navigation
-  - Eyebrows and labels
-  - Stats or compact metadata
-- Keep paragraphs in sentence case.
-- Do not use serif fonts.
-- Do not use italics except for a genuinely exceptional editorial detail.
-- Keep paragraph width around 560–680px.
-- Use 700, not very heavy 800/900, for the primary display text.
-- Use 400–500 for body copy.
-- Match the screenshot’s mixed emphasis: one line or word in white, the paired line or word in lime.
-
-#### Outlined display text
-Use this treatment for large background words such as “DIGITAAL,” “OUR SERVICES,” or the secondary half of a section title:
-```css
-.display-outline {
+### Typographic rules
+- Display headings may mix ink + teal, or ink + coral, for the two-line emphasis
+  pattern (replaces the old white/lime pattern).
+- Outlined display words on light backgrounds use:
+  ```css
+  -webkit-text-stroke: 1px rgba(18, 32, 27, 0.14);
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
-}
-```
-For stronger visibility at very large sizes, the stroke can be increased to 1.5px, but it should remain subtle.
+  ```
+- On deep green surfaces, outlined words use `rgba(255,255,255,0.14)`.
+- Paragraph max-width ~620px; sentence case only.
+- No serif, no italics except rare editorial quotes.
 
 ---
 
-### 4. Layout and Grid
+## 4. Layout and Grid
 
-#### Page canvas
-The screenshot is approximately 1366px wide.
-Recommended global container:
 ```css
 .container {
   width: calc(100% - 48px);
-  max-width: 1170px;
+  max-width: 1200px;
   margin-inline: auto;
 }
-```
-At 1366px this produces approximately 98px side gutters, closely matching the reference.
-
-#### Grid system
-Use a 12-column grid:
-```css
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 24px;
-}
-```
-**Primary proportions:**
-- Hero: 6 columns text/heading + 6 columns supporting content
-- Editorial section intro: 6–7 columns heading + 5–6 columns description
-- Case-study media: 5 columns
-- Case-study content: 6–7 columns
-- Services: 3 equal columns
-- Team: 3 equal columns
-- Blog: 3 equal columns
-- Awards: graphic/intro plus list
-- Logo wall: 5 columns on desktop
-
-#### Header
-- Full-width transparent header
-- Height: approximately 100px
-- No solid glass panel
-- Very subtle bottom divider around 1px
-- Left: logo
-- Center: primary navigation
-- Right: search icon and lime CTA
-
-Desktop header inner layout:
-```
-[Logo]                    [Nav links]                         [Search] [CTA]
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
 ```
 
-#### Hero
-- Full-bleed photographic or atmospheric background
-- Dark overlay
-- Left: oversized two-line H1
-- Right: paragraph, CTA, avatar group, and customer statistic
-- Vertical alignment around the optical center
-- Avoid placing the hero content inside a boxed card
+- Editorial headers: 7 cols heading / 5 cols description+CTA (asymmetric, not centered).
+- Services / team / blog: 3 columns; logo wall: 5 columns.
+- Case studies: 5 cols media / 6–7 cols content.
+- Section padding: 96–120px desktop, 80px tablet, 56–64px mobile.
+- Cards sit on the warm background with visible soft shadows — the "floating card"
+  feel from the references replaces the old thin-dark-border separation.
 
-Recommended hero dimensions:
-```css
-.hero {
-  min-height: 620px;
-  padding-top: 120px;
-  padding-bottom: 90px;
-}
-```
-The first heading line should be off-white, and the second should be lime.
+### Header
+- Transparent over hero, sticky on scroll with `background: rgba(255,255,255,0.85)`
+  + `backdrop-filter: blur(12px)` and `--color-border` bottom hairline.
+- Height: 76–84px (more compact than the old 100px dark bar).
+- Left logo, center nav, right pill CTA. Active nav link: teal + 2px coral underline dot.
 
-#### Full-bleed image banner
-A second full-width photographic band appears beneath the hero:
-- No border radius
-- Dark overlay
-- Centered, oversized outlined brand word
-- Photography remains visible but subdued
+### Hero
+- **Default (light):** warm background, oversized H1 left, supporting content right,
+  rounded hero image card (radius 24px) or full-bleed photo with white content below.
+- **Alternate (deep):** full-bleed forest-green `#123B2E` with subtle lime→teal
+  ambient glow, white text, teal pill CTA.
+- Min-height 600px; content not boxed in a bordered card.
 
-#### Section headers
-Use an asymmetric split layout:
-- Left: display heading
-- Right: short paragraph and optional CTA
-- Do not center all section headers
-- Allow oversized background typography to overlap section boundaries
-
-#### Cards and content sections
-Services, case studies, awards, team, CTA, blog, and footer share the same container width.
-Do not create isolated section widths.
-Alternate between:
-- Full-bleed imagery
-- Contained 1170px content
-- Dark surface panels
-- Large decorative typography
-
-#### Footer
-- Background: `#121310`
-- Large lime “Let’s Talk” heading
-- Four-column link/content structure
-- Newsletter/contact area
-- Thin divider above a compact copyright bar
-- No light footer
+### Footer
+- Deep green `#123B2E`, large white/teal "Let's Talk" heading, coral accent mark,
+  4-column grid, hairline dividers in `--color-deep-border`.
 
 ---
 
-### 5. Spacing and White Space
+## 5. Spacing
 
-#### Spacing scale
-Use an 8px-based system:
-`4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 120 / 160px`
+8px base scale: `4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 120px`
 
-#### Practical spacing values
-
-| Context | Recommended value |
+| Context | Value |
 | :--- | :--- |
-| Desktop section padding | 110–130px top and bottom |
-| Standard section spacing | 120px |
-| Tablet section spacing | 80–96px |
-| Mobile section spacing | 56–72px |
-| Section heading to paragraph | 24–32px |
-| Paragraph to CTA | 28–36px |
-| Grid gap | 24px |
-| Large editorial column gap | 48–64px |
+| Section padding (desktop) | 100–120px vertical |
+| Section header → content | 48–64px |
+| Grid gap | 24px (32px for large editorial splits) |
 | Card padding | 28–36px |
 | Card internal gap | 16–24px |
 | Button height | 52–56px |
-| Header height | 100px desktop |
-| Trust/logo row height | 90–110px |
-| Case-study row separation | 80–110px |
-| Footer column gap | 48–64px |
-| Footer top padding | 90–120px |
-| Footer bottom padding | 32–48px |
-
-#### Vertical rhythm
-- Do not tightly pack sections.
-- The design depends on generous empty black space.
-- Large display text may overlap neighboring content by approximately 40–80px, but only as a deliberate decorative layer.
-- Do not use random margins outside the spacing scale.
+| Header height | 80px |
+| Card row separation | 64–96px |
 
 ---
 
-### 6. Visual Hierarchy
+## 6. Border Radius, Shadows, Effects
 
-#### Primary focal point
-The user’s eye should move in this order:
-1. Hero H1
-2. Lime second hero line
-3. Lime CTA
-4. Social/customer proof
-5. Full-bleed photographic banner
-6. Section display heading
-7. Supporting paragraph
-8. Cards or case-study media
-
-#### Hero hierarchy
-- The H1 is visually dominant because of its scale and high contrast.
-- The second line in lime receives the strongest chromatic emphasis.
-- The CTA is the dominant interactive element.
-- Avatars and “200k” support the CTA without competing with it.
-- Body copy remains secondary and gray.
-
-#### Section hierarchy
-- Large display headings establish section identity.
-- Important words within those headings may be lime.
-- Outlined words should act as texture, not as the main readable heading.
-- Supporting paragraphs are smaller, gray, and aligned to the right side of editorial headers.
-- CTAs remain lime but should not be repeated excessively.
-
-#### Visual weight
-
-| Element | Weight |
-| :--- | :--- |
-| Lime CTA | Highest interactive weight |
-| Hero H1 / key display word | Highest content weight |
-| Section H2 | High |
-| Card titles | Medium-high |
-| Body copy | Medium-low |
-| Metadata | Low |
-| Outlined background words | Deliberately low |
-| Dividers and borders | Very low |
-
-Whitespace is a major design feature. Do not fill every empty area with icons, cards, gradients, or decorations.
-
----
-
-### 7. Components and UI Patterns
-
-#### 7.1 Navbar
-
-**Shape and structure**
-- Full-width
-- Transparent over hero
-- Height: 100px
-- No rounded container
-- Thin bottom divider only
-
-**Logo**
-- Left aligned
-- Lime geometric symbol beside white wordmark
-- Approximate logo height: 40–48px
-
-**Navigation links**
-- Font: 14px
-- Uppercase
-- Weight: 500–600
-- Color: `#F1F1ED`
-- Gap: approximately 36–44px
-- Hover/active: `#D9F45F`
-
-**Right actions**
-- Search icon: white, approximately 20–22px
-- Primary CTA: lime pill with circular dark icon end
-
-#### 7.2 Buttons
-The visible button system is strongly consistent and pill-based.
-
-**Primary button**
+### Radius (larger and softer than v1)
 ```css
-.button-primary {
-  height: 56px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 8px 8px 26px;
-  border: 0;
-  border-radius: 999px;
-  background: #D9F45F;
-  color: #0A0A0A;
-  font-size: 15px;
-  font-weight: 600;
-}
+--radius-sm: 10px;   /* small chips, tags */
+--radius-md: 16px;   /* cards, inputs, images */
+--radius-lg: 24px;   /* hero media, feature panels */
+--radius-pill: 999px;/* buttons, avatars, icon chips */
 ```
 
-**Circular button icon**
-- Diameter: 40px
-- Background: `#0A0A0A`
-- Icon: lime or white
-- Fully rounded
+### Shadows (soft, warm-tinted — replace dark borders as primary separator)
+```css
+--shadow-sm: 0 2px 8px rgba(18, 32, 27, 0.06);
+--shadow-md: 0 8px 28px rgba(18, 32, 27, 0.10);
+--shadow-lg: 0 16px 48px rgba(18, 32, 27, 0.14);
+```
+- Cards default: `--shadow-sm` + 1px `--color-border`; hover: `--shadow-md`.
+- No colored (teal/coral) glows except a very restrained teal ambient in hero.
+- Dividers are 1px `--color-border` hairlines, never heavy.
 
-**Hover**
-- Background darkens slightly to `#C8E84D`
-- Icon/label may invert subtly
-- No large scale effect
-- No shadow
+---
 
-**Focus**
-- Use a visible 2px white or lime outline with a small offset.
+## 7. Components
 
-> Important: Do not invent multiple unrelated button styles. The reference primarily uses one lime primary button.
+### 7.1 Buttons
+One primary, one secondary, one text link — derived from the same tokens.
 
-#### 7.3 Cards
+```css
+/* Primary — teal, white text, pill, circular white-icon end */
+.button-primary {
+  height: 56px; padding: 8px 8px 8px 28px; border: 0;
+  border-radius: 999px; background: #0B7C6D; color: #fff;
+  font: 600 15px/1 "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 8px 20px rgba(11, 124, 109, 0.28);
+}
+.button-primary .icon-end {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #fff; color: #0B7C6D; /* inverted chip */
+}
+.button-primary:hover { background: #0A6E60; transform: translateY(-2px); }
+.button-primary:active { transform: translateY(0); }
 
-**Service/blog media cards**
-- Background: `#121310`
-- Border: 1px solid `#2B2C29`
-- Radius: 8–12px
-- Media usually fills the top of the card
-- Image ratio: approximately 4:3
-- Dark photographic overlay
-- Title: 21–26px, semibold
-- Supporting text: 14–16px muted
-- Internal spacing: 24–32px
+/* Secondary — white surface, ink text, teal icon chip */
+.button-secondary {
+  height: 56px; padding: 8px 8px 8px 28px;
+  border-radius: 999px; background: #fff; color: #12201B;
+  border: 1px solid #E6E3DB; box-shadow: var(--shadow-sm);
+}
+.button-secondary .icon-end { background: #E2F4F1; color: #0B7C6D; }
+.button-secondary:hover { border-color: #0E9E8C; }
 
-**Testimonial card**
-- Dark surface background
-- Subtle border
-- Radius: approximately 8–12px
-- Padding: 32–40px
-- Quote in off-white
-- Author name and role in smaller gray text
-- Avatars/rating remain visually secondary to the quote
+/* Accent variant (promotional only) — coral bg + ink text */
+.button-accent { background: #FF6B57; color: #12201B; }
+.button-accent:hover { background: #F25A46; }
+```
 
-**Logo tiles**
-- Dark rectangular cells
-- Thin border
-- No strong shadow
-- White or gray monochrome logos
-- Approximately 5 columns on desktop
-- Logo opacity around 0.6–0.8
-- Hover may increase opacity and border visibility
+### 7.2 Cards
+- Background `#FFFFFF`, radius 16px, border 1px `--color-border`, shadow `--shadow-sm`.
+- Media tops the card with same-radius top corners (overflow hidden), ratio 4:3 or 16:10.
+- Category tag: pill chip in `--color-primary-soft` with `--color-primary-strong` text (teal),
+  or `--color-accent-soft` with coral-deep text for promos.
+- Hover: shadow `--shadow-md`, border `--color-border-strong`, image scale 1.04 (300ms ease),
+  title turns `--color-primary-strong`.
+- Team cards: media dominant, name in ink, role in muted, social icon chips appear on hover.
 
-#### 7.4 Inputs
-Inputs are not clearly visible in the screenshot. If forms are necessary, use a restrained pattern consistent with the design:
+### 7.3 Inputs
 ```css
 .input {
-  height: 52px;
-  padding: 0 16px;
-  border: 1px solid #2B2C29;
-  border-radius: 8px;
-  background: #121310;
-  color: #F1F1ED;
+  height: 52px; padding: 0 18px; border-radius: 12px;
+  border: 1px solid #E6E3DB; background: #fff; color: #12201B;
+  font-size: 15px;
 }
-
-.input::placeholder {
-  color: #74766F;
-}
-
-.input:focus {
-  border-color: #D9F45F;
-  outline: none;
-}
+.input::placeholder { color: #8A938D; }
+.input:hover { border-color: #D4D0C4; }
+.input:focus { border-color: #0E9E8C; box-shadow: 0 0 0 4px rgba(14,158,140,0.15); outline: none; }
 ```
-Do not introduce light rounded forms or colorful validation styling.
 
-#### 7.5 Links
-- Default: off-white or muted gray
-- Hover: lime
-- Avoid permanent underlines
-- Use underline for keyboard focus or small inline links
-- “Read More” links can be compact and semibold
+### 7.4 Navigation
+- Links: 14–15px, 600, `--color-text`; hover/active: `--color-primary-strong`.
+- Active state: teal text + coral 6px dot beneath (teal+coral pairing signature).
+- Mobile (<1024px): hamburger → full-screen deep-green menu, white links, teal CTA.
 
-#### 7.6 Icons
-- Thin geometric line icons
-- Stroke width: approximately 1.5px
-- Size: 18–24px
-- Colors: white, gray, or lime
-- Circular icon containers are fully rounded
-- Do not use emoji, filled cartoon icon sets, or multicolor icons
+### 7.5 Badges / tags / ratings
+- Rating stars: coral `#FF6B57` (replaces lime stars).
+- Numeric badges (notification dot): coral bg + white text.
+- Service icon chips: 56px circle, `--color-primary-soft` bg, teal 22px line icon (1.5px stroke).
 
-#### 7.7 Images and avatars
+### 7.6 Marquee (restyled)
+- White surface band, 1px top/bottom `--color-border`, ink uppercase text,
+  teal asterisk/star separators, subtle tilt -1.5deg.
+- Dark-section variant: deep green band, white text, coral separators.
 
-**Photography**
-- Full-bleed or large editorial blocks
-- object-fit: cover
-- Dark overlay
-- No heavy frames
-- Keep colors subdued beneath overlays
+### 7.7 Awards / lists
+- Row list with hairline dividers; award name 600 ink; year right-aligned in muted.
+- A small teal trophy/line icon (20px) may prefix each row.
 
-**Content images**
-- Radius: 8–12px
-- Aspect ratio:
-  - Case studies: approximately 4:3
-  - Blog cards: approximately 16:10
-  - Service cards: approximately 4:3
-
-**Avatars**
-- Fully circular
-- Border: 1–2px subtle lime or gray
-- Team avatars can be large, up to 200–240px
-- Customer avatars overlap slightly
-
-#### 7.8 Section labels
-Section labels are small, restrained, and often prefixed by a lime mark or cross.
-
-Example:
-```
-+ ABOUT US
-+ OUR SERVICES
-+ TESTIMONIAL
-+ AWARDS & RECOGNITION
-+ FROM THE BLOG
-```
-Use:
-- 12–13px
-- Uppercase
-- Letter spacing: 0.10–0.14em
-- Muted or lime accent
-- Not a large pill badge
-
-#### 7.9 Marquee
-The lime band is a defining graphic pattern.
-- Full width
-- Lime background
-- Black uppercase text
-- Height: approximately 56–64px
-- Slight diagonal rotation, around -2deg
-- Repeating service words separated by stars or asterisks
-- No border, shadow, or gradient
-
-#### 7.10 Awards list
-- Use rows, not cards
-- Thin separator lines
-- Label: small uppercase muted text
-- Award name: 20–24px semibold
-- Date: small uppercase right-aligned text
-- Avoid adding icons to every row
-
-#### 7.11 Footer
-- Background: `#121310`
-- Large lime CTA heading
-- Four-column desktop grid
-- Links: 14px white/muted
-- Hover: lime
-- Social icons: simple circles
-- Newsletter input should remain dark and minimal
-- Bottom copyright bar: black or near-black, 13px gray text
+### 7.8 Section labels
+- `+ WHAT WE DO` pattern retained: 12–13px, 600, uppercase, 0.12em tracking, `--color-text-faint`,
+  with a teal `+` or coral `+` alternating per section.
 
 ---
 
-### 8. Border Radius, Shadows, and Effects
+## 8. Hover / Active / Focus States (summary)
 
-#### Radius scale
-```css
---radius-xs: 6px;
---radius-sm: 8px;
---radius-md: 12px;
---radius-lg: 20px;
---radius-pill: 999px;
-```
+| Element | Default | Hover | Active/Focus |
+| :--- | :--- | :--- | :--- |
+| Nav links / text links | ink / muted | teal-strong; coral dot on nav | 2px teal outline (focus-visible) |
+| Primary button | teal-strong bg | darker teal, lift -2px, shadow grows | returns to rest position |
+| Secondary button | white, hairline border | teal border, teal icon chip | — |
+| Cards | shadow-sm, border | shadow-md, media scale, teal title | 2px teal outline |
+| Inputs | hairline border | border-strong | teal border + 4px teal ring |
+| Logo wall tiles | grayscale, 70% opacity | full color, shadow-sm | — |
 
-#### Radius rules
+All transitions 160–220ms ease. No parallax, no scroll-jacking, no particle effects.
 
-| Component | Radius |
+---
+
+## 9. Responsive Guidelines
+
+| Breakpoint | Key behavior |
 | :--- | :--- |
-| Hero and full-bleed images | 0 |
-| Case-study images | 8–10px |
-| Blog/service media cards | 8–12px |
-| Testimonial panels | 8–12px |
-| Inputs | 8px |
-| Buttons | 999px |
-| Icons/avatars | 999px |
-| Logo symbols | 6–10px |
-
-#### Shadows
-The design relies more on background separation and borders than shadows.
-Use shadows sparingly:
-```css
---shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.25);
---shadow-md: 0 16px 48px rgba(0, 0, 0, 0.35);
-```
-Do not use:
-- White shadows
-- Lime-colored shadows
-- Large soft shadows on every card
-- Neon glows around components
-
-#### Effects present in the design
-Acceptable effects:
-- Dark image overlays
-- Very subtle lime ambience
-- Transparent outlined typography
-- Diagonal lime divider
-- Sparse white line illustrations
-- Monochrome abstract 3D decoration
-- Star marquee separators
-
-Avoid:
-- Glassmorphism
-- Frosted panels
-- Heavy blur cards
-- Rainbow gradients
-- Random floating shapes
-- Excessive hover scaling
-- Decorative particle systems
+| ≥1200px | Full 3/5-col grids, 1200px container, section padding 100–120px |
+| 1024–1199px | Same language; nav may collapse at 1080px; padding 88–96px |
+| 768–1023px | Hamburger menu; hero stacks; grids → 2 cols; footer 2 cols; padding 80px |
+| <768px | Single column everywhere; H1 40–48px; logo wall 2 cols; buttons full-width in hero only; padding 56–64px; touch targets ≥44px |
 
 ---
 
-### 9. Responsive Design
-
-#### Recommended breakpoints
-```css
---bp-desktop: 1200px;
---bp-laptop: 1024px;
---bp-tablet: 768px;
---bp-mobile: 480px;
-```
-
-**Desktop: 1200px+**
-- Container: 1170px
-- Header height: 100px
-- Hero H1: up to 96px
-- Services/team/blog: 3 columns
-- Logo wall: 5 columns
-- Footer: 4 columns
-- Full asymmetric layouts retained
-
-**Laptop: 1024–1199px**
-- Preserve the same design language
-- Container uses calc(100% - 48px)
-- Header height: 80–90px
-- Reduce section padding to 96–110px
-- Reduce large editorial gaps to 40px
-- Hero may remain two-column until approximately 900px
-
-**Tablet: 768–1023px**
-- Hide desktop nav behind a hamburger menu
-- Hero stacks into one column
-- H1: approximately 56–72px
-- Services/team/blog: 2 columns
-- Case studies stack with image first
-- Awards metadata can sit beneath titles
-- Footer: 2 columns
-- Section padding: 80–96px
-- Container gutter: approximately 32px total
-
-**Mobile: <768px**
-- Header height: 68–72px
-- Hero H1: 44–56px
-- Display background words: 56–72px
-- Section H2: 34–44px
-- Body remains at least 16px
-- All major grids become one column
-- Logo wall: 2 columns
-- Buttons may become full width only for primary hero CTAs
-- Section padding: 56–72px
-- Case image and text stack vertically
-- Avoid overlapping outlined text with readable content
-- Preserve a minimum touch target of 44px
-
----
-
-### 10. Consistency Rules
-
-1. Use only the specified color palette.
-2. Use the same dark background on every page.
-3. Use one geometric sans-serif typeface.
-4. Use the same 8px spacing scale everywhere.
-5. Keep all primary CTAs lime, pill-shaped, and icon-ended.
-6. Use only small radius values for media and panels.
-7. Use thin dark borders instead of conspicuous shadows.
-8. Keep all images dark, subdued, and consistently treated.
-9. Use uppercase only for display, labels, and navigation.
-10. Keep paragraphs gray and compact in width.
-11. Reserve lime for one or two focal elements per viewport.
-12. Do not mix glassmorphism, skeuomorphism, or flat colorful cards.
-13. Use outlined typography only for display/background words.
-14. Keep section spacing generous.
-15. Use consistent hover behavior:
-    - Text: white → lime
-    - Primary button: lime → slightly darker lime
-    - Borders: subtle dark border → lime-tinted border
-16. Never let decorative typography reduce readability.
-17. Keep the same design language across home, inner pages, cards, and footer.
-
----
-
-### 11. Design Tokens
+## 10. Design Tokens (drop-in `:root`)
 
 ```css
 :root {
-  /* Colors */
-  --color-primary: #D9F45F;
-  --color-primary-hover: #C8E84D;
-  --color-primary-subtle: rgba(217, 244, 95, 0.12);
-  --color-on-primary: #0A0A0A;
+  /* Color */
+  --color-background: #FAF9F6;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F1EFE9;
+  --color-border: #E6E3DB;
+  --color-border-strong: #D4D0C4;
 
-  --color-background: #0A0A0A;
-  --color-surface: #121310;
-  --color-surface-raised: #181A17;
+  --color-text: #12201B;
+  --color-text-muted: #5C6660;
+  --color-text-faint: #8A938D;
 
-  --color-text: #F1F1ED;
-  --color-text-strong: #FFFFFF;
-  --color-text-muted: #A0A19A;
-  --color-text-dim: #74766F;
+  --color-primary: #0E9E8C;
+  --color-primary-strong: #0B7C6D;
+  --color-primary-soft: #E2F4F1;
+  --color-accent: #FF6B57;
+  --color-accent-strong: #E8503C;
+  --color-accent-soft: #FFE9E5;
 
-  --color-border: #2B2C29;
-  --color-border-subtle: #1D1E1B;
+  --color-deep: #123B2E;
+  --color-deep-raised: #1B4A3A;
+  --color-deep-text: #EDEAE2;
+  --color-deep-muted: #9DB3A9;
+  --color-deep-border: #2A5646;
 
-  --color-outline-text: rgba(255, 255, 255, 0.14);
-  --color-overlay: rgba(10, 10, 10, 0.72);
+  --color-outline-ink: rgba(18, 32, 27, 0.14);
+  --color-outline-light: rgba(255, 255, 255, 0.14);
 
   /* Typography */
   --font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-
-  --font-size-display: clamp(72px, 9vw, 140px);
-  --font-size-h1: clamp(52px, 7vw, 96px);
-  --font-size-h2: clamp(40px, 4.5vw, 64px);
-  --font-size-h3: clamp(28px, 3vw, 36px);
-  --font-size-h4: clamp(21px, 2vw, 26px);
+  --font-size-h1: clamp(44px, 6vw, 80px);
+  --font-size-h2: clamp(34px, 4vw, 56px);
+  --font-size-h3: clamp(24px, 2.6vw, 32px);
+  --font-size-h4: clamp(19px, 1.8vw, 24px);
   --font-size-lead: 18px;
   --font-size-body: 16px;
   --font-size-small: 14px;
   --font-size-caption: 13px;
-
-  --line-height-display: 0.95;
-  --line-height-heading: 1.1;
+  --line-height-display: 1.02;
   --line-height-body: 1.65;
-
   --letter-spacing-tight: -0.02em;
   --letter-spacing-caps: 0.12em;
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
   /* Layout */
-  --container-max: 1170px;
-  --container-gutter: 24px;
-  --grid-columns: 12;
+  --container-max: 1200px;
   --grid-gap: 24px;
-
-  --header-height: 100px;
-  --section-space: 120px;
-  --section-space-tablet: 88px;
-  --section-space-mobile: 64px;
-
-  /* Spacing */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 40px;
-  --space-8: 48px;
-  --space-9: 64px;
-  --space-10: 80px;
-  --space-11: 96px;
-  --space-12: 120px;
-  --space-13: 160px;
-
-  /* Components */
-  --button-height: 56px;
-  --button-padding-inline: 26px;
-  --button-icon-size: 40px;
-  --card-padding: 32px;
-  --marquee-height: 56px;
+  --header-height: 80px;
+  --section-space: 110px;
+  --section-space-mobile: 60px;
 
   /* Radius */
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-pill: 999px;
 
   /* Shadows */
-  --shadow-none: none;
-  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 2px 8px rgba(18, 32, 27, 0.06);
+  --shadow-md: 0 8px 28px rgba(18, 32, 27, 0.10);
+  --shadow-lg: 0 16px 48px rgba(18, 32, 27, 0.14);
 
   /* Motion */
   --transition-fast: 160ms ease;
@@ -831,82 +408,17 @@ Avoid:
 }
 ```
 
-#### Core utility patterns
-```css
-.container {
-  width: calc(100% - (var(--container-gutter) * 2));
-  max-width: var(--container-max);
-  margin-inline: auto;
-}
-
-.grid-12 {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: var(--grid-gap);
-}
-
-.display-outline {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-outline-text);
-}
-
-.primary-button {
-  min-height: var(--button-height);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--button-padding-inline);
-  border: 0;
-  border-radius: var(--radius-pill);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  font: 600 15px/1 var(--font-family);
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
-}
-
-.primary-button:hover {
-  background: var(--color-primary-hover);
-}
-
-.primary-button:focus-visible {
-  outline: 2px solid var(--color-text-strong);
-  outline-offset: 3px;
-}
-```
-
 ---
 
-### 12. Rules for Claude Code
+## 11. Consistency Rules (updated)
 
-Implement the website using the following rules:
-
-1. Use the dark design system only. Do not introduce a light theme or unrelated visual language.
-2. Use the supplied design tokens as the source of truth. Prefer CSS custom properties over hard-coded values.
-3. Use a near-black page background of #0A0A0A. Do not place the main content on white or light-gray sections.
-4. Use #D9F45F as the only interface accent. Do not add blue, purple, orange, red, pink, or cyan UI colors.
-5. Use one geometric sans-serif family. Recommended: Plus Jakarta Sans; fallback: Inter, system-ui, sans-serif.
-6. Follow the typography hierarchy exactly. Do not randomly enlarge body text or shrink headings outside the defined scale.
-7. Preserve oversized uppercase display typography. Use outlined type only for decorative background words.
-8. Use a maximum container width of approximately 1170px. Maintain consistent side gutters on every section.
-9. Use a 12-column grid and the specified spacing scale. Do not use arbitrary one-off margins.
-10. Use generous section spacing. Most desktop sections should have roughly 110–130px vertical padding.
-11. Use one primary button style: lime, black text, pill-shaped, approximately 56px high, with a circular dark icon end.
-12. Do not invent multiple button styles. If another action is absolutely necessary, derive it from the existing border and color tokens.
-13. Use thin dark borders and subtle elevation. Avoid heavy shadows and colored glows.
-14. Use 8–12px radii for content images and panels. Use fully rounded radii only for buttons, avatars, and circular icons.
-15. Treat all photography consistently: object-fit: cover, dark overlay, subdued contrast, no bright frames.
-16. Keep hero and full-bleed banners edge-to-edge. Do not put them inside rounded page containers.
-17. Stack sections on tablet and mobile. Preserve the same dark theme, type hierarchy, spacing rhythm, and component appearance.
-18. Convert all major grids to one column below approximately 768px.
-19. Replace desktop navigation with a dark mobile menu below approximately 1024px.
-20. Keep interactive states consistent:
-    - Navigation and links: white/gray to lime
-    - Primary buttons: lime to slightly darker lime
-    - Inputs and cards: subtle border to lime border
-21. Do not add unnecessary animations. If motion is used, keep it limited to a horizontal marquee and subtle 160–220ms hover transitions.
-22. Do not add glassmorphism, heavy blur, particle effects, decorative gradients, or random floating shapes.
-23. Do not change colors, spacing, typography, or component styling from page to page.
-24. Use sufficient contrast for accessibility. Body text should remain at least 16px, and all text/background combinations should meet WCAG AA.
-25. When uncertain, match the screenshot’s restraint: fewer colors, fewer borders, fewer effects, more negative space.
+1. Light-first: background/surface neutrals dominate; deep green only for hero/CTA/footer moments.
+2. Teal = brand & actions; coral = energy & highlights; never a third UI hue.
+3. One typeface, one type scale, 8px spacing scale everywhere.
+4. All CTAs are pill-shaped with a circular icon chip end.
+5. Cards are white, rounded 16px, hairline border + soft shadow — no dark bordered tiles.
+6. Photography is bright and natural; no heavy dark overlays.
+7. Hover: lift + shadow deepen + accent shift (ink → teal). No scale beyond 1.04 on media.
+8. Body text ≥16px, muted minimum `#5C6660` on light surfaces.
+9. Same visual language across home, inner pages, and footer.
+10. When uncertain, add white space — not more color.
