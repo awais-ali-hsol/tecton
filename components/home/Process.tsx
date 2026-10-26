@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { processSteps } from "@/lib/data";
 import { useMediaQuery } from "@/components/ui/hooks";
 import { MaskLines } from "@/components/ui/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 
 /** Desktop: vertical scroll drives a horizontal track. Mobile / reduced motion: plain stacked list. */
 export function Process() {
@@ -36,13 +35,12 @@ export function Process() {
   return (
     <section
       ref={section}
-      className={`process theme-ink ${pinned ? "is-pinned" : ""}`}
+      className={`process theme-bone ${pinned ? "is-pinned" : ""}`}
       style={pinned ? { height: `calc(100vh + ${distance}px)` } : undefined}
       aria-labelledby="process-title"
     >
       <div className="process__sticky">
         <div className="wrap process__head">
-          <SectionLabel index="04" title="How we work" />
           <h2 id="process-title" className="h-display">
             <MaskLines lines={["From first call", <span key="l2">to <em>compounding</em> value.</span>]} />
           </h2>

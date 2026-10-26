@@ -22,9 +22,19 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const svc = services.find((s) => s.slug === slug);
   if (!svc) return { title: "Service — Tecton Solutions" };
   return {
-    title: `${svc.title} — Tecton Solutions`,
+    title: svc.title,
     description: svc.description,
-    openGraph: { title: `${svc.title} — Tecton Solutions`, description: svc.description, type: "website" },
+    alternates: { canonical: `https://tectonsolutions.com/services/${svc.slug}` },
+    openGraph: {
+      title: `${svc.title} — Tecton Solutions`,
+      description: svc.description,
+      type: "website",
+      url: `https://tectonsolutions.com/services/${svc.slug}`,
+    },
+    twitter: {
+      title: `${svc.title} — Tecton Solutions`,
+      description: svc.description,
+    },
   };
 }
 

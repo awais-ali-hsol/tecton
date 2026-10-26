@@ -13,8 +13,18 @@ import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Studio — Tecton Solutions",
+  title: "Studio",
   description: "An independent product studio in New York. Ten years of designing and engineering software people rely on.",
+  alternates: { canonical: "https://tectonsolutions.com/about" },
+  openGraph: {
+    title: "Studio — Tecton Solutions",
+    description: "An independent product studio in New York. Ten years of designing and engineering software people rely on.",
+    url: "https://tectonsolutions.com/about",
+  },
+  twitter: {
+    title: "Studio — Tecton Solutions",
+    description: "An independent product studio in New York. Ten years of designing and engineering software people rely on.",
+  },
 };
 
 const values = [
@@ -58,7 +68,7 @@ export default function AboutPage() {
         />
 
         <section className="block theme-bone" aria-labelledby="mission-title">
-          <div className="wrap" style={{ marginBottom: "clamp(96px, 12vw, 180px)" }}>
+          <div className="wrap frames-wrap">
             <StudioFrames
               frames={[
                 { src: "/assets/imgi_78_Big-1.webp", alt: "The Tecton team reviewing a product build together around a laptop", caption: "Weekly product review, NYC", position: "45% 35%" },
@@ -114,29 +124,17 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="block theme-bone" aria-labelledby="story-title">
+<section className="block theme-ink" aria-labelledby="team-title">
           <div className="wrap">
             <header className="sec-head">
-              <SectionLabel index="03" title="Our story" />
-              <h2 id="story-title" className="h-display">
-                <MaskLines lines={["A decade of", <span key="l2">building <em>together.</em></span>]} />
-              </h2>
-            </header>
-            <Timeline items={milestones} />
-          </div>
-        </section>
-
-        <section className="block theme-ink" aria-labelledby="team-title">
-          <div className="wrap">
-            <header className="sec-head">
-              <SectionLabel index="04" title="People" />
+              <SectionLabel index="03" title="The team" />
               <h2 id="team-title" className="h-display">
                 <MaskLines lines={["Small team.", <span key="l2"><em>Senior</em> hands.</span>]} />
               </h2>
-              <Reveal className="sec-head__aside" delay={0.2}>
-                <p>No hand-offs to juniors you never met. The people in your kickoff are the people shipping your product.</p>
-              </Reveal>
             </header>
+            <Reveal delay={0.2}>
+              <p className="about-team__sub">No hand-offs to juniors you never met. The people in your kickoff are the people shipping your product.</p>
+            </Reveal>
             <ul className="team">
               {team.map((m, i) => (
                 <li key={m.name}>
@@ -153,9 +151,21 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="block theme-ink" style={{ paddingTop: 0 }} aria-labelledby="awards-title">
+        <section className="block theme-bone" aria-labelledby="history-title">
           <div className="wrap">
-            <header className="sec-head" style={{ marginBottom: 40 }}>
+            <header className="sec-head">
+              <SectionLabel index="04" title="History" />
+              <h2 id="history-title" className="h-display">
+                <MaskLines lines={["Ten years,", <span key="l2">one <em>studio.</em></span>]} />
+              </h2>
+            </header>
+            <Timeline items={milestones} />
+          </div>
+        </section>
+
+        <section className="block theme-ink" aria-labelledby="awards-title">
+          <div className="wrap">
+            <header className="sec-head">
               <SectionLabel index="05" title="Recognition" />
               <h2 id="awards-title" className="sr-only">Awards and recognition</h2>
             </header>

@@ -10,8 +10,18 @@ import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Contact — Tecton Solutions",
+  title: "Contact",
   description: "Tell us about your project. We reply to every brief within one business day.",
+  alternates: { canonical: "https://tectonsolutions.com/contact" },
+  openGraph: {
+    title: "Contact — Tecton Solutions",
+    description: "Tell us about your project. We reply to every brief within one business day.",
+    url: "https://tectonsolutions.com/contact",
+  },
+  twitter: {
+    title: "Contact — Tecton Solutions",
+    description: "Tell us about your project. We reply to every brief within one business day.",
+  },
 };
 
 export default function ContactPage() {

@@ -8,7 +8,7 @@ export function PageHero({
   intro,
   children,
 }: {
-  kicker: string;
+  kicker?: string;
   meta?: string;
   lines: ReactNode[];
   intro?: ReactNode;
@@ -18,10 +18,12 @@ export function PageHero({
     <section className="phero theme-ink">
       <Gridlines />
       <div className="wrap phero__inner">
-        <div className="phero__meta">
-          <span className="label">{kicker}</span>
-          {meta && <span className="label">{meta}</span>}
-        </div>
+        {kicker && (
+          <div className="phero__meta">
+            <span className="label">{kicker}</span>
+            {meta && <span className="label">{meta}</span>}
+          </div>
+        )}
         <h1 className="phero__title">
           <MaskLines trigger="mount" delay={0.1} lines={lines} />
         </h1>
