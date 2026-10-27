@@ -4,15 +4,24 @@ import { Counter } from "@/components/ui/Counter";
 import { CtaSection } from "@/components/ui/CtaSection";
 import { PageHero } from "@/components/ui/PageHero";
 import { MaskLines, Reveal } from "@/components/ui/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { WorkExplorer } from "@/components/work/WorkExplorer";
 import { WorkReel } from "@/components/work/WorkReel";
 
 export const metadata: Metadata = {
-  title: "Work — Tecton Solutions",
+  title: "Work",
   description: "Selected platforms, mobile apps and commerce experiences designed and engineered by Tecton Solutions.",
+  alternates: { canonical: "https://tectonsolutions.com/work" },
+  openGraph: {
+    title: "Work — Tecton Solutions",
+    description: "Selected platforms, mobile apps and commerce experiences designed and engineered by Tecton Solutions.",
+    url: "https://tectonsolutions.com/work",
+  },
+  twitter: {
+    title: "Work — Tecton Solutions",
+    description: "Selected platforms, mobile apps and commerce experiences designed and engineered by Tecton Solutions.",
+  },
 };
 
 const years = projects.map((p) => Number(p.year));
@@ -31,8 +40,6 @@ export default function WorkPage() {
       <SiteHeader />
       <main id="main">
         <PageHero
-          kicker="(Work) — Selected projects"
-          meta={`${projects.length} launches · 2023 — 2026`}
           lines={["Selected", <em key="w">work.</em>]}
           intro={
             <p>
@@ -59,13 +66,9 @@ export default function WorkPage() {
         <section className="block theme-ink" aria-labelledby="archive-title">
           <div className="wrap">
             <header className="sec-head">
-              <SectionLabel index="01" title="The archive" />
               <h2 id="archive-title" className="h-display">
                 <MaskLines lines={["Every launch,", <span key="l2"><em>still</em> live.</span>]} />
               </h2>
-              <Reveal className="sec-head__aside" delay={0.2}>
-                <p>Filter by discipline, sort by year, or switch to the index view. Every card opens the live product.</p>
-              </Reveal>
             </header>
             <WorkExplorer defaultView="grid" allowViewToggle allowSort />
           </div>

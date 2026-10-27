@@ -38,12 +38,6 @@ export function Hero() {
       <div className="hero__glow" aria-hidden />
 
       <div className="wrap hero__inner">
-        <div className="hero__meta fade-up" style={{ animationDelay: "0.1s" }}>
-          <span className="label">Tecton Solutions® — Independent product studio</span>
-          <span className="label hide-md">Est. 2015 · New York / Remote</span>
-          <a href="#studio" className="label hero__status">Scroll to explore <ArrowDown size={12} /></a>
-        </div>
-
         <motion.h1
           id="hero-title"
           className="hero__title"
@@ -56,6 +50,47 @@ export function Hero() {
             lines={["Software with", <em key="s">structural</em>, "integrity."]}
           />
         </motion.h1>
+
+        <motion.div
+          className="reel-wrap"
+          style={reduce ? undefined : { y: reelY }}
+          initial={{ opacity: 1, clipPath: "inset(0% 0 0 0)" }}
+          animate={{ opacity: 1, clipPath: "inset(0% 0 0 0)" }}
+          transition={{ duration: 0, ease: EASE, delay: 0 }}
+        >
+          <Link
+            href="/work/"
+            className="reel"
+            aria-label={`View all work — now showing ${current.title}`}
+            onPointerEnter={() => setPaused(true)}
+            onPointerLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
+          >
+            <div className="reel__frame">
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={current.title}
+                  className="reel__img"
+                  initial={{ clipPath: "inset(0 0 0 100%)" }}
+                  animate={{ clipPath: "inset(0 0 0 0%)" }}
+                  exit={{ opacity: 0, transition: { duration: 0.4, delay: 0.6 } }}
+                  transition={{ duration: 0.9, ease: EASE }}
+                >
+                  <Image src={current.image} alt="" fill sizes="(max-width: 1024px) 90vw, 460px" priority={index === 0} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            <div className="reel__cap">
+              <span className="label">Now showing</span>
+              <span className="reel__title">{current.title}</span>
+              <span className="label">{String(index + 1).padStart(2, "0")} / {String(reel.length).padStart(2, "0")}</span>
+            </div>
+            <div className="reel__bar" aria-hidden>
+              <span key={`${index}-${paused}`} className="reel__progress" data-paused={paused || !!reduce} />
+            </div>
+          </Link>
+        </motion.div>
 
         <div className="hero__foot">
           <div className="hero__intro fade-up" style={{ animationDelay: "0.75s" }}>
@@ -70,47 +105,6 @@ export function Hero() {
               </a>
             </div>
           </div>
-
-          <motion.div
-            className="reel-wrap"
-            style={reduce ? undefined : { y: reelY }}
-            initial={{ opacity: 0, clipPath: "inset(100% 0 0 0)" }}
-            animate={{ opacity: 1, clipPath: "inset(0% 0 0 0)" }}
-            transition={{ duration: 1.2, ease: EASE, delay: 0.55 }}
-          >
-            <Link
-              href="/work/"
-              className="reel"
-              aria-label={`View all work — now showing ${current.title}`}
-              onPointerEnter={() => setPaused(true)}
-              onPointerLeave={() => setPaused(false)}
-              onFocus={() => setPaused(true)}
-              onBlur={() => setPaused(false)}
-            >
-              <div className="reel__frame">
-                <AnimatePresence initial={false}>
-                  <motion.div
-                    key={current.title}
-                    className="reel__img"
-                    initial={{ clipPath: "inset(0 0 0 100%)" }}
-                    animate={{ clipPath: "inset(0 0 0 0%)" }}
-                    exit={{ opacity: 0, transition: { duration: 0.4, delay: 0.6 } }}
-                    transition={{ duration: 0.9, ease: EASE }}
-                  >
-                    <Image src={current.image} alt="" fill sizes="(max-width: 1024px) 90vw, 460px" priority={index === 0} />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="reel__cap">
-                <span className="label">Now showing</span>
-                <span className="reel__title">{current.title}</span>
-                <span className="label">{String(index + 1).padStart(2, "0")} / {String(reel.length).padStart(2, "0")}</span>
-              </div>
-              <div className="reel__bar" aria-hidden>
-                <span key={`${index}-${paused}`} className="reel__progress" data-paused={paused || !!reduce} />
-              </div>
-            </Link>
-          </motion.div>
         </div>
       </div>
 

@@ -2,7 +2,6 @@ import Image from "next/image";
 import { posts } from "@/lib/data";
 import { ArrowRight } from "@/components/ui/icons";
 import { MaskLines, Reveal } from "@/components/ui/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const READ_TIME = ["7 min read", "5 min read", "6 min read"];
 
@@ -25,13 +24,9 @@ export function Insights() {
     <section className="insights theme-ink" id="insights" aria-labelledby="insights-title">
       <div className="wrap">
         <header className="sec-head">
-          <SectionLabel index="06" title="The journal" />
           <h2 id="insights-title" className="h-display">
             <MaskLines lines={["Notes from", <span key="l2">the <em>workshop.</em></span>]} />
           </h2>
-          <Reveal className="sec-head__aside" delay={0.2}>
-            <p>Practical writing on AI, product design and engineering — from the people doing the work.</p>
-          </Reveal>
         </header>
 
         <Reveal>

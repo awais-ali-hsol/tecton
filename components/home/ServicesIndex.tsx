@@ -6,8 +6,7 @@ import { useState } from "react";
 import { serviceDetails, services } from "@/lib/data";
 import { ArrowRight, ArrowUpRight } from "@/components/ui/icons";
 import { EASE } from "@/components/ui/hooks";
-import { MaskLines, Reveal } from "@/components/ui/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { MaskLines } from "@/components/ui/Reveal";
 
 export function ServicesIndex() {
   const [active, setActive] = useState(0);
@@ -15,16 +14,12 @@ export function ServicesIndex() {
   const detail = serviceDetails[svc.slug];
 
   return (
-    <section className="svc theme-bone" id="services" aria-labelledby="svc-title">
+    <section className="svc theme-ink" id="services" aria-labelledby="svc-title">
       <div className="wrap">
         <header className="sec-head">
-          <SectionLabel index="03" title="Capabilities" />
           <h2 id="svc-title" className="h-display">
             <MaskLines lines={["Ten disciplines.", <span key="l2"><em>One</em> accountable team.</span>]} />
           </h2>
-          <Reveal className="sec-head__aside" delay={0.2}>
-            <p>Strategy, design and engineering under one roof — so nothing gets lost between a slide deck and a deploy.</p>
-          </Reveal>
         </header>
 
         <div className="svc__grid">

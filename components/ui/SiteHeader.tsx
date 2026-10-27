@@ -66,16 +66,12 @@ export function SiteHeader() {
                 className="hdr__link"
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
-                <sup>0{i + 1}</sup>
                 {item.label}
               </Link>
             ))}
           </nav>
 
           <div className="hdr__end">
-            <span className="hdr__status label">
-              <i className="pulse-dot" aria-hidden /> Booking Q1 2027
-            </span>
             <Button href="/contact/" size="sm" className="hdr__cta">Start a project</Button>
             <button
               type="button"
