@@ -18,7 +18,8 @@ export function useMediaQuery(query: string) {
 
 export const useFinePointer = () => useMediaQuery("(hover: hover) and (pointer: fine)");
 
-export function useLocalTime(timeZone: string) {
+/** Current time in `timeZone`, or in the visitor's own timezone when omitted. */
+export function useLocalTime(timeZone?: string) {
   const [time, setTime] = useState<string | null>(null);
   useEffect(() => {
     const fmt = new Intl.DateTimeFormat("en-US", { timeZone, hour: "2-digit", minute: "2-digit", hour12: false });

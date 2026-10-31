@@ -6,14 +6,30 @@ export function PageHero({
   meta,
   lines,
   intro,
+  introAside,
   children,
 }: {
   kicker?: string;
   meta?: string;
   lines: ReactNode[];
   intro?: ReactNode;
+  /** Sets the intro beside the title on wide screens, for short titles. */
+  introAside?: boolean;
   children?: ReactNode;
 }) {
+  const heading = (
+    <>
+      <h1 className="phero__title">
+        <MaskLines trigger="mount" delay={0.1} lines={lines} />
+      </h1>
+      {intro && (
+        <div className="phero__intro fade-up" style={{ animationDelay: "0.4s" }}>
+          {intro}
+        </div>
+      )}
+    </>
+  );
+
   return (
     <section className="phero theme-ink">
       <Gridlines />
@@ -24,14 +40,7 @@ export function PageHero({
             {meta && <span className="label">{meta}</span>}
           </div>
         )}
-        <h1 className="phero__title">
-          <MaskLines trigger="mount" delay={0.1} lines={lines} />
-        </h1>
-        {intro && (
-          <div className="phero__intro fade-up" style={{ animationDelay: "0.4s" }}>
-            {intro}
-          </div>
-        )}
+        {introAside ? <div className="phero__split">{heading}</div> : heading}
         {children}
       </div>
     </section>

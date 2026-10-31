@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/Hero";
-import { Insights } from "@/components/home/Insights";
+// import { Insights } from "@/components/home/Insights";
 import { Manifesto } from "@/components/home/Manifesto";
 import { Process } from "@/components/home/Process";
 import { ServicesIndex } from "@/components/home/ServicesIndex";
@@ -16,7 +16,7 @@ export default function Site() {
         <Manifesto />
         <ServicesIndex />
         <Process />
-        <Insights />
+        {/* <Insights /> */}
         <CtaSection />
       </main>
       <SiteFooter />

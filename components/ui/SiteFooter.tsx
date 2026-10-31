@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import { Logo, LogoMark } from "@/components/Logo";
 import { contact, socials } from "@/lib/data";
 
 const NAV = [
@@ -16,7 +16,8 @@ export function SiteFooter() {
     <footer className="ftr theme-ink">
       {/* ── Large wordmark band ── */}
       <div className="ftr__wordmark" aria-hidden>
-        {"Tecton".split("").map((c, i) => (
+        <LogoMark className="ftr__mark" />
+        {"ecton".split("").map((c, i) => (
           <span key={i} style={{ transitionDelay: `${i * 30}ms` }}>{c}</span>
         ))}
       </div>

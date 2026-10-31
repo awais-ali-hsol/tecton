@@ -13,7 +13,7 @@ const NAV = [
   { href: "/work/", label: "Work" },
   { href: "/#services", label: "Services" },
   { href: "/about/", label: "Studio" },
-  { href: "/#insights", label: "Insights" },
+  // { href: "/#insights", label: "Insights" },
   { href: "/contact/", label: "Contact" },
 ];
 
@@ -25,7 +25,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
-  const time = useLocalTime(contact.timezone);
+  const time = useLocalTime();
 
   useEffect(() => {
     const onScroll = () => {
@@ -123,7 +123,7 @@ export function SiteHeader() {
             >
               <a href={`mailto:${contact.email}`} className="menu__email">{contact.email}</a>
               <div className="menu__meta">
-                <span className="label">New York {time ?? "--:--"}</span>
+                <span className="label">Your time {time ?? "--:--"}</span>
                 <span className="menu__socials">
                   {socials.map((s) => (
                     <a key={s.label} href={s.href} className="label">{s.label}</a>

@@ -51,6 +51,9 @@ function validate(f: Fields, picked: string[]): Errors {
   return e;
 }
 
+/** The form is much taller than the success panel, so swapping them leaves the panel above the fold. */
+const scrollToPanel = (el: HTMLDivElement | null) => el?.scrollIntoView({ block: "start" });
+
 export function BriefForm() {
   const params = useSearchParams();
   const fromService = services.find((s) => s.slug === params.get("service"));
@@ -107,6 +110,7 @@ export function BriefForm() {
         {status === "sent" ? (
           <motion.div
             key="sent"
+            ref={scrollToPanel}
             className="success"
             role="status"
             initial={{ opacity: 0, y: 24 }}

@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const STATEMENT =
-  "Tecton is an independent product studio. For over a decade we've partnered with founders and operators to design, engineer and ship software people *rely* on — not demos, but systems that *hold* *weight* as the business grows.";
+  "Tecton is an independent product studio. For two years we've partnered with founders and operators to design, engineer and ship software people *rely* on — not demos, but systems that *hold* *weight* as the business grows.";
 
 function Word({ word, progress, range }: { word: string; progress: MotionValue<number>; range: [number, number] }) {
   const opacity = useTransform(progress, range, [0.16, 1]);

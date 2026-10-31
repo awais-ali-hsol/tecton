@@ -27,12 +27,13 @@ export function CopyEmail() {
 }
 
 export function StudioClock() {
-  const time = useLocalTime(contact.timezone);
-  const hour = time ? Number(time.slice(0, 2)) : null;
+  const time = useLocalTime();
+  const studioTime = useLocalTime(contact.timezone);
+  const hour = studioTime ? Number(studioTime.slice(0, 2)) : null;
   const open = hour !== null && hour >= 9 && hour < 18;
   return (
     <span>
-      {time ?? "--:--"} in New York{hour !== null && <span className="label"> · {open ? "studio open" : "studio closed — we'll reply first thing"}</span>}
+      {time ?? "--:--"} your time{hour !== null && <span className="label"> · {open ? "studio open" : "studio closed — we'll reply first thing"}</span>}
     </span>
   );
 }
