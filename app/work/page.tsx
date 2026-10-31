@@ -41,6 +41,7 @@ export default function WorkPage() {
       <main id="main">
         <PageHero
           lines={["Selected", <em key="w">work.</em>]}
+          introAside
           intro={
             <p>
               Platforms, apps and storefronts for wellness studios, fintechs, publishers and retailers —

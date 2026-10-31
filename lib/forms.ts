@@ -1,7 +1,7 @@
 /*
- * Form submission layer. There is no backend yet: both functions resolve locally
- * after a short delay so the UI states (loading / success / error) can be exercised.
- * Replace the bodies with real API calls once endpoints exist — callers won't change.
+ * Form submission layer. Inquiries post to /api/contact, which emails them via Resend.
+ * The newsletter has no backend yet: it resolves locally after a short delay so the
+ * UI states can be exercised. Replace its body once an endpoint exists.
  */
 
 export type Inquiry = {
@@ -21,9 +21,17 @@ const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
 
 export async function submitInquiry(inquiry: Inquiry): Promise<SubmitResult> {
-  void inquiry; // TODO(backend): POST to the inquiry endpoint
-  await wait(1200);
-  return { ok: true };
+  try {
+    // Trailing slash matches `trailingSlash: true`, avoiding a redirect on POST.
+    const res = await fetch("/api/contact/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(inquiry),
+    });
+    return (await res.json()) as SubmitResult;
+  } catch {
+    return { ok: false, error: "Network error." };
+  }
 }
 
 export async function subscribeNewsletter(email: string): Promise<SubmitResult> {

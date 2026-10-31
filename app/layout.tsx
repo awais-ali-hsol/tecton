@@ -33,8 +33,9 @@ const jsonLd = {
       foundingDate: "2015",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "New York",
-        addressCountry: "US",
+        addressLocality: "Lahore",
+        addressRegion: "Punjab",
+        addressCountry: "PK",
       },
     },
     {
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   icons: {
-    icon: [{ url: "/tecton-favicon.png", type: "image/png", sizes: "1254x1254" }],
+    icon: [{ url: "/tecton-favicon.png", type: "image/png", sizes: "512x512" }],
     shortcut: "/tecton-favicon.png",
     apple: "/tecton-favicon.png",
   },
@@ -105,7 +106,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="theme-ink" suppressHydrationWarning>
         <script
           type="application/ld+json"

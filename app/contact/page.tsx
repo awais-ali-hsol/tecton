@@ -48,7 +48,7 @@ export default function ContactPage() {
                   </p>
                   <dl className="contact__list">
                     <div><dt className="label">Email</dt><dd><CopyEmail /></dd></div>
-                    <div><dt className="label">Phone</dt><dd><a href={contact.phoneHref} className="link-u">{contact.phone}</a></dd></div>
+                    <div><dt className="label">Phone</dt><dd>{contact.phone}</dd></div>
                     <div><dt className="label">Studio</dt><dd>{contact.address}</dd></div>
                     <div><dt className="label">Local time</dt><dd><StudioClock /></dd></div>
                   </dl>

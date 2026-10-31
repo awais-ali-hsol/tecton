@@ -202,12 +202,12 @@ export const awards = [
 ];
 
 export const team = [
-  { name: "Alex Morgan", role: "CEO & Co-Founder", avatar: "/assets/imgi_33_tm-3h2.webp" },
-  { name: "Ryan Foster", role: "CTO & Lead Architect", avatar: "/assets/imgi_35_tm-3h1.webp" },
-  { name: "Priya Patel", role: "Head of Design", avatar: "/assets/imgi_34_tm-3h3.webp" },
-  { name: "Jordan Ellis", role: "AI & Automation Lead", avatar: "/assets/imgi_25_test.webp" },
-  { name: "Sam Rivera", role: "Product Manager", avatar: "/assets/imgi_26_test3.webp" },
-  { name: "Casey Brooks", role: "Senior Developer", avatar: "/assets/imgi_27_test1.webp" },
+  { name: "Muhammad Zain ALi", role: "Co-Founder & CTO", avatar: "/assets/zain-ali.webp" },
+  { name: "Muhammad Awais ALi", role: "Co-Founder & Lead Architect", avatar: "/assets/awais-ali.webp" },
+  { name: "Syed Ammar Haider", role: "Co-Founder & Head of Sales", avatar: "/assets/amar.webp" },
+  { name: "Noman Khan", role: "Lead SDR", avatar: "/assets/noman.webp" },
+  // { name: "Sam Rivera", role: "Product Manager", avatar: "/assets/imgi_26_test3.webp" },
+  // { name: "Casey Brooks", role: "Senior Developer", avatar: "/assets/imgi_27_test1.webp" },
 ];
 
 export const clients = [
@@ -274,18 +274,17 @@ export const processSteps = [
 
 export const contact = {
   email: "info@tectonsolutions.com",
-  phone: "+1 (555) 234-5678",
-  phoneHref: "tel:+15552345678",
-  address: "350 Fifth Avenue, New York, NY 10118",
-  timezone: "America/New_York",
+  phone: "Currently unavailable",
+  address: "Ethehad Town, Lahore, Punjab, Pakistan",
+  timezone: "Asia/Karachi",
 };
 
 // Placeholder profile URLs — replace with the real accounts before launch.
 export const socials = [
-  { label: "LinkedIn", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "Dribbble", href: "#" },
-  { label: "Clutch", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/tecton-solutions/" },
+  { label: "Instagram", href: "https://www.instagram.com/tectonsolutions" },
+  // { label: "Dribbble", href: "#" },
+  // { label: "Clutch", href: "#" },
 ];
 
 export const faqs = [
