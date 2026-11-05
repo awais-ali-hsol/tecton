@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { projects } from "@/lib/data";
 import { Counter } from "@/components/ui/Counter";
 import { CtaSection } from "@/components/ui/CtaSection";
@@ -9,20 +10,12 @@ import { SiteHeader } from "@/components/ui/SiteHeader";
 import { WorkExplorer } from "@/components/work/WorkExplorer";
 import { WorkReel } from "@/components/work/WorkReel";
 
-export const metadata: Metadata = {
-  title: "Work",
-  description: "Selected platforms, mobile apps and commerce experiences designed and engineered by Tecton Solutions.",
-  alternates: { canonical: "https://tectonsolutions.com/work" },
-  openGraph: {
-    title: "Work — Tecton Solutions",
-    description: "Selected platforms, mobile apps and commerce experiences designed and engineered by Tecton Solutions.",
-    url: "https://tectonsolutions.com/work",
-  },
-  twitter: {
-    title: "Work — Tecton Solutions",
-    description: "Selected platforms, mobile apps and commerce experiences designed and engineered by Tecton Solutions.",
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Our Work: Web, SaaS & Mobile Projects | Tecton Solutions",
+  description:
+    "Ten live web platforms, SaaS products, mobile apps and online stores for clients in wellness, property, fintech, media and retail, built by Tecton.",
+  path: "/work/",
+});
 
 const years = projects.map((p) => Number(p.year));
 const yearSpan = Math.max(...years) - Math.min(...years) + 1;
@@ -41,6 +34,7 @@ export default function WorkPage() {
       <main id="main">
         <PageHero
           lines={["Selected", <em key="w">work.</em>]}
+          keyword="Web, SaaS and mobile app projects"
           introAside
           intro={
             <p>

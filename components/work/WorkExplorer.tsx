@@ -281,7 +281,7 @@ function GridCard({
             <span className="browser__url">{host(p.url)}</span>
           </div>
           <div className="browser__screen">
-            <Image src={p.image} alt={`${p.title} — ${p.description}`} fill sizes="(max-width: 900px) 100vw, 50vw" />
+            <Image src={p.image} alt={`${p.title} ${p.kind === "Mobile" ? "app" : "website"} designed and built by Tecton Solutions`} fill sizes="(max-width: 900px) 100vw, 50vw" />
           </div>
         </motion.div>
         {!tilt && <span className="wcard__chip">View live <ArrowUpRight size={14} /></span>}

@@ -539,9 +539,10 @@ em { font-style: italic; }
 .stat__num { order: -1; font-size: clamp(48px, 6vw, 96px); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
 
 /* Odometer */
-.odo__visual { display: inline-flex; align-items: flex-start; line-height: 1; }
+.odo { display: inline-flex; align-items: flex-start; line-height: 1; }
 .odo__col { position: relative; display: inline-block; height: 1em; overflow: hidden; }
-.odo__sizer { display: block; height: 1em; line-height: 1em; visibility: hidden; }
+/* The sizer holds the real digit: transparent (not visibility:hidden) so it stays in the text and accessibility tree. */
+.odo__sizer { display: block; height: 1em; line-height: 1em; color: transparent; }
 .odo__strip {
   position: absolute; top: 0; left: 50%;
   display: flex; flex-direction: column; align-items: center;
@@ -549,7 +550,8 @@ em { font-style: italic; }
   transition: transform calc(1.5s + var(--i) * 0.35s) cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: calc(var(--i) * 90ms);
 }
-.odo__strip span { display: block; height: 1em; line-height: 1em; }
+/* Two cycles of digits as generated content, so they never appear in the page text. */
+.odo__strip::before { content: "0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9"; display: block; white-space: pre; line-height: 1em; text-align: center; }
 .odo[data-on="true"] .odo__strip { transform: translate(-50%, calc(var(--d) * -1em)); }
 .odo__char { display: inline-block; height: 1em; line-height: 1em; }
 .odo__suffix {
@@ -1121,6 +1123,14 @@ a:hover .jnotify { gap: 16px; border-color: var(--signal); color: var(--signal);
 .phero { position: relative; padding-top: calc(var(--hdr-h) + clamp(32px, 5vw, 64px)); padding-bottom: clamp(64px, 8vw, 120px); overflow: hidden; }
 .phero__inner { position: relative; z-index: 1; }
 .phero__meta { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+/* Plain-language keyword line inside a display H1. */
+.h1-keyword {
+  display: block; margin-top: 0.9em;
+  font-family: var(--ff-mono), ui-monospace, monospace; font-size: 13px; font-weight: 400;
+  letter-spacing: 0.08em; line-height: 1.4; text-transform: uppercase; color: var(--muted);
+}
+.hero__title .h1-keyword, .phero__title .h1-keyword { font-size: clamp(12px, 1vw, 14px); }
+
 .phero__title {
   margin-top: clamp(40px, 6vw, 88px);
   font-size: clamp(56px, 11vw, 200px);
@@ -1350,3 +1360,8 @@ a:hover .jnotify { gap: 16px; border-color: var(--signal); color: var(--signal);
 
 .fade-up { animation: fade-up 1s var(--ease) both; }
 @keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* ─── Legal pages ───────────────────────────────────────────────────────── */
+.legal { font-size: 17px; line-height: 1.65; }
+.legal p { margin-top: 16px; max-width: 64ch; }
+.legal h2 { margin-top: 48px; font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -0.02em; line-height: 1.2; }

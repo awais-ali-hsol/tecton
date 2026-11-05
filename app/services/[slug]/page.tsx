@@ -10,6 +10,7 @@ import { MaskLines, Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
+import { absoluteUrl, breadcrumbJsonLd, jsonLdScript, ORG_ID, pageMetadata, serviceSeo } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -20,22 +21,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const svc = services.find((s) => s.slug === slug);
-  if (!svc) return { title: "Service — Tecton Solutions" };
-  return {
-    title: svc.title,
-    description: svc.description,
-    alternates: { canonical: `https://tectonsolutions.com/services/${svc.slug}` },
-    openGraph: {
-      title: `${svc.title} — Tecton Solutions`,
-      description: svc.description,
-      type: "website",
-      url: `https://tectonsolutions.com/services/${svc.slug}`,
-    },
-    twitter: {
-      title: `${svc.title} — Tecton Solutions`,
-      description: svc.description,
-    },
-  };
+  if (!svc) return {};
+  const seo = serviceSeo[svc.slug];
+  return pageMetadata({ title: seo.title, description: seo.description, path: `/services/${svc.slug}/` });
 }
 
 export default async function ServicePage({ params }: Params) {
@@ -46,11 +34,42 @@ export default async function ServicePage({ params }: Params) {
   const detail = serviceDetails[svc.slug];
   const prev = services[(index - 1 + services.length) % services.length];
   const next = services[(index + 1) % services.length];
+  const seo = serviceSeo[svc.slug];
   const words = svc.title.split(" ");
   const last = words.pop();
+  const url = absoluteUrl(`/services/${svc.slug}/`);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: `${seo.keyword} services`,
+        serviceType: svc.title,
+        description: seo.description,
+        url,
+        provider: { "@id": ORG_ID },
+        areaServed: "Worldwide",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `${svc.title} capabilities`,
+          itemListElement: detail.capabilities.map((c) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: c },
+          })),
+        },
+      },
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services/" },
+        { name: svc.title, path: `/services/${svc.slug}/` },
+      ]),
+    ],
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(jsonLd)} />
       <SiteHeader />
       <main id="main">
         <PageHero
@@ -60,10 +79,11 @@ export default async function ServicePage({ params }: Params) {
             ...(words.length ? [words.join(" ")] : []),
             <em key="last">{last}</em>,
           ]}
+          keyword={seo.headline}
           intro={<p>{svc.detail}</p>}
         >
           <div className="phero__back">
-            <Link href="/#services" className="link-arrow"><ArrowLeft size={16} /> All services</Link>
+            <Link href="/services/" className="link-arrow"><ArrowLeft size={16} /> All services</Link>
           </div>
         </PageHero>
 
@@ -91,7 +111,7 @@ export default async function ServicePage({ params }: Params) {
             <header className="sec-head">
               <SectionLabel index="02" title="Capabilities" />
               <h2 id="caps-title" className="h-display">
-                <MaskLines lines={["What's in", <span key="l2">the <em>toolkit.</em></span>]} />
+                <MaskLines lines={[`Our ${svc.title}`, <span key="l2"><em>toolkit.</em></span>]} />
               </h2>
               <Reveal className="sec-head__aside" delay={0.2}>
                 <ul className="tags">{svc.technologies.map((t) => <li key={t}>{t}</li>)}</ul>
@@ -134,7 +154,7 @@ export default async function ServicePage({ params }: Params) {
             <header className="sec-head">
               <SectionLabel index="05" title="Engagement" />
               <h2 id="svc-process-title" className="h-display">
-                <MaskLines lines={["Six steps,", <span key="l2"><em>no</em> surprises.</span>]} />
+                <MaskLines lines={[`How a ${svc.title}`, <span key="l2">project <em>runs.</em></span>]} />
               </h2>
             </header>
             <div className="rows">

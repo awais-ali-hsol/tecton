@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const STATEMENT =
-  "Tecton is an independent product studio. For two years we've partnered with founders and operators to design, engineer and ship software people *rely* on — not demos, but systems that *hold* *weight* as the business grows.";
+  "Tecton is an independent software studio in Lahore, founded in 2025 by engineers with ten-plus years of combined experience. We partner with founders and operators to design, engineer and ship software people *rely* on — not demos, but systems that *hold* *weight* as the business grows.";
 
 function Word({ word, progress, range }: { word: string; progress: MotionValue<number>; range: [number, number] }) {
   const opacity = useTransform(progress, range, [0.16, 1]);
@@ -21,10 +21,11 @@ function Word({ word, progress, range }: { word: string; progress: MotionValue<n
 }
 
 const STATS = [
-  { to: 10, suffix: "+", label: "Years building products" },
-  { to: 120, suffix: "+", label: "Launches shipped" },
-  { to: 98, suffix: "%", label: "Clients who return" },
-  { to: 4.9, decimals: 1, suffix: "/5", label: "Average Clutch rating" },
+  // Keep these in step with the About page stats and the Organization schema.
+  { to: 10, suffix: "+", label: "Years of combined experience" },
+  { to: 50, suffix: "+", label: "Products launched" },
+  { to: 10, suffix: "", label: "Designers & engineers" },
+  { to: 4, suffix: "", label: "Countries served" },
 ];
 
 export function Manifesto() {
@@ -54,7 +55,7 @@ export function Manifesto() {
             <Reveal key={s.label} delay={i * 0.08} className="stat">
               <dt className="label">{s.label}</dt>
               <dd className="stat__num">
-                <Counter to={s.to} decimals={s.decimals} suffix={s.suffix} />
+                <Counter to={s.to} suffix={s.suffix} />
               </dd>
             </Reveal>
           ))}

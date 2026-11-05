@@ -62,7 +62,7 @@ export function ServicesIndex() {
                   onFocus={() => setActive(i)}
                 >
                   <span className="svc-row__num label">{s.number}</span>
-                  <span className="svc-row__title">{s.title}</span>
+                  <h3 className="svc-row__title">{s.title}</h3>
                   <span className="svc-row__desc">{s.description}</span>
                   <span className="svc-row__arrow" aria-hidden><ArrowUpRight size={22} /></span>
                 </Link>

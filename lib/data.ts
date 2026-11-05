@@ -43,7 +43,7 @@ export const projects = [
     description: "Hot yoga studio website with booking, membership and community features.",
     tags: ["Web Design", "Booking System", "WordPress"],
     detail: "A full-featured digital presence for a hot yoga studio in Aachen — seamless class bookings, membership flows and a community hub in one polished experience.",
-    image: "/assets/thumbnails/warungyoga-thumbnail.png",
+    image: "/assets/thumbnails/warungyoga-thumbnail.webp",
     url: "https://warungyoga.de/",
   },
   {
@@ -55,7 +55,7 @@ export const projects = [
     description: "Property listing platform built for speed, trust and conversion.",
     tags: ["Next.js", "React", "PostgreSQL"],
     detail: "A modern real estate platform that makes finding, listing and comparing properties fast and frictionless — designed for agents and buyers alike.",
-    image: "/assets/thumbnails/irealtors-thumbnail.png",
+    image: "/assets/thumbnails/irealtors-thumbnail.webp",
     url: "https://i-realtors.com/",
   },
   {
@@ -67,7 +67,7 @@ export const projects = [
     description: "Meal prep delivery service with subscription ordering and custom plans.",
     tags: ["E-commerce", "Shopify", "Custom UI"],
     detail: "A high-conversion storefront for a meal prep delivery brand — tailored plans, subscription management and a checkout flow optimised for repeat orders.",
-    image: "/assets/thumbnails/atlantamealprep-thumbnail.png",
+    image: "/assets/thumbnails/atlantamealprep-thumbnail.webp",
     url: "https://atlantamealprep.com/",
   },
   {
@@ -79,7 +79,7 @@ export const projects = [
     description: "Online IQ testing platform with instant results and downloadable certificates.",
     tags: ["React", "Node.js", "PDF Generation"],
     detail: "A scientifically-grounded IQ assessment platform delivering instant results, detailed score breakdowns and verified certificates — built to scale to millions of tests.",
-    image: "/assets/thumbnails/iqspark-thumbnail.png",
+    image: "/assets/thumbnails/iqspark-thumbnail.webp",
     url: "https://iqspark.org/",
   },
   {
@@ -91,7 +91,7 @@ export const projects = [
     description: "Global freedom index and news platform tracking civil liberties by country.",
     tags: ["Next.js", "Data Viz", "CMS"],
     detail: "An editorial platform tracking civil liberties and freedom metrics across countries — live rankings, data visualisation and long-form journalism in one place.",
-    image: "/assets/thumbnails/leagueofnations-thumbnail.png",
+    image: "/assets/thumbnails/leagueofnations-thumbnail.webp",
     url: "https://leagueofnations.co.uk/",
   },
   {
@@ -103,7 +103,7 @@ export const projects = [
     description: "Employee scheduling and workforce management platform with a companion app.",
     tags: ["React Native", "Node.js", "AWS"],
     detail: "A next-gen workforce platform combining intuitive shift scheduling, live attendance tracking and task delegation — available on web and iOS.",
-    image: "/assets/thumbnails/shift2go-thumbnail.png",
+    image: "/assets/thumbnails/shift2go-thumbnail.webp",
     url: "https://www.shift2go.io/",
   },
   {
@@ -115,7 +115,7 @@ export const projects = [
     description: "All-in-one platform to sell services, take bookings and go live — get paid in one app.",
     tags: ["React Native", "Node.js", "Payments"],
     detail: "SplaShark is a storefront, booking desk and payment system in one — enabling creators and service providers to sell, book and go live from a single feed.",
-    image: "/assets/thumbnails/splashark-thumbnail.png",
+    image: "/assets/thumbnails/splashark-thumbnail.webp",
     url: "https://splashark.com/",
   },
   {
@@ -127,7 +127,7 @@ export const projects = [
     description: "Smart driving companion app with real-time safety alerts and family location sharing.",
     tags: ["React Native", "Node.js", "Mobile"],
     detail: "GenixDrive combines real-time safety alerts, family location sharing and driving rewards into one complete companion app — with 10K+ active users and 50K+ downloads.",
-    image: "/assets/thumbnails/genixdrive-thumbnail.png",
+    image: "/assets/thumbnails/genixdrive-thumbnail.webp",
     url: "https://genix-drive.vercel.app/",
   },
   {
@@ -139,7 +139,7 @@ export const projects = [
     description: "Financial comparison platform for 2,000+ credit cards and loans across 60+ countries.",
     tags: ["Next.js", "Data Platform", "FinTech"],
     detail: "Buzdy is an everyday money companion that lets users compare financial products, explore markets, manage card wallets and build better money habits — spanning 607+ banks in 62 countries.",
-    image: "/assets/thumbnails/buzdy-thumbnail.png",
+    image: "/assets/thumbnails/buzdy-thumbnail.webp",
     url: "https://buzdy.com/",
   },
   {
@@ -151,15 +151,9 @@ export const projects = [
     description: "Multi-category e-commerce store built on Shopify for the Pakistani market.",
     tags: ["Shopify", "E-commerce", "Custom Theme"],
     detail: "A full-featured Shopify storefront for Rehmat Store Pakistan — spanning art supplies, camping gear, self-defence, perfumes and accessories with a striking dark editorial design.",
-    image: "/assets/portfolio-rehmatstore.jpg",
+    image: "/assets/thumbnails/rehmatstore-thumbnail.webp",
     url: "https://rehmatstore.pk/",
   },
-];
-
-export const stats = [
-  { value: 10, suffix: "+", label: "Years of Experience" },
-  { value: 120, suffix: "+", label: "Projects Delivered" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
 ];
 
 export const testimonials = [
@@ -202,9 +196,9 @@ export const awards = [
 ];
 
 export const team = [
-  { name: "Muhammad Zain ALi", role: "Co-Founder & CTO", avatar: "/assets/zain-ali.webp" },
-  { name: "Muhammad Awais ALi", role: "Co-Founder & Lead Architect", avatar: "/assets/awais-ali.webp" },
-  { name: "Syed Ammar Haider", role: "Co-Founder & Head of Sales", avatar: "/assets/amar.webp" },
+  { name: "Muhammad Zain Ali", role: "Co-Founder & CTO", avatar: "/assets/zain-ali.webp" },
+  { name: "Muhammad Awais Ali", role: "Co-Founder & Lead Architect", avatar: "/assets/awais-ali.webp" },
+  { name: "Syed Ammar Haider", role: "Co-Founder & Head of Sales", avatar: "/assets/ammar.webp" },
   { name: "Noman Khan", role: "Lead SDR", avatar: "/assets/noman.webp" },
   // { name: "Sam Rivera", role: "Product Manager", avatar: "/assets/imgi_26_test3.webp" },
   // { name: "Casey Brooks", role: "Senior Developer", avatar: "/assets/imgi_27_test1.webp" },

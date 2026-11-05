@@ -4,7 +4,7 @@ import { contact, socials } from "@/lib/data";
 
 const NAV = [
   { href: "/work/", label: "Work" },
-  { href: "/#services", label: "Services" },
+  { href: "/services/", label: "Services" },
   { href: "/about/", label: "Studio" },
   { href: "/contact/", label: "Contact" },
 ];
@@ -43,6 +43,7 @@ export function SiteFooter() {
             {socials.map((s) => (
               <a key={s.label} href={s.href} className="ftr__social label">{s.label}</a>
             ))}
+            <Link href="/privacy/" className="ftr__social label">Privacy</Link>
             <span className="ftr__copy label">© {year}</span>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { jsonLdScript, pageMetadata } from "@/lib/seo";
 import { Suspense } from "react";
 import { contact, faqs } from "@/lib/data";
 import { BriefForm } from "@/components/contact/BriefForm";
@@ -9,24 +10,27 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Tell us about your project. We reply to every brief within one business day.",
-  alternates: { canonical: "https://tectonsolutions.com/contact" },
-  openGraph: {
-    title: "Contact — Tecton Solutions",
-    description: "Tell us about your project. We reply to every brief within one business day.",
-    url: "https://tectonsolutions.com/contact",
-  },
-  twitter: {
-    title: "Contact — Tecton Solutions",
-    description: "Tell us about your project. We reply to every brief within one business day.",
-  },
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Tecton Solutions | Start Your Software Project",
+  description:
+    "Tell us about your software, web or mobile app project. A partner, not a sales rep, replies within one business day on scope, timeline and cost.",
+  path: "/contact/",
+});
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 export default function ContactPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(faqJsonLd)} />
       <SiteHeader />
       <main id="main">
         <section className="contact theme-ink" aria-labelledby="contact-title">
