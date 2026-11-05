@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { EASE } from "./hooks";
 
 type RevealProps = { children: ReactNode; delay?: number; y?: number; className?: string };
@@ -35,7 +35,10 @@ export function MaskLines({ lines, trigger = "view", delay = 0, stagger = 0.09 }
   return (
     <>
       {lines.map((line, i) => (
-        <span className="mask-line" key={i}>
+        <Fragment key={i}>
+        {/* A real space between lines so crawlers and link previews don't read fused words. */}
+        {i > 0 && " "}
+        <span className="mask-line">
           {trigger === "mount" ? (
             <span className="mask-line__inner mask-line__inner--css" style={{ animationDelay: `${delay + i * stagger}s` }}>
               {line}
@@ -52,6 +55,7 @@ export function MaskLines({ lines, trigger = "view", delay = 0, stagger = 0.09 }
             </motion.span>
           )}
         </span>
+        </Fragment>
       ))}
     </>
   );

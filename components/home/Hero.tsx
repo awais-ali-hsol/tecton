@@ -48,7 +48,10 @@ export function Hero() {
             delay={0.2}
             stagger={0.11}
             lines={["Software with", <em key="s">structural</em>, "integrity."]}
-          />
+          />{" "}
+          <span className="h1-keyword fade-up" style={{ animationDelay: "0.5s" }}>
+            Custom software, web and mobile app development
+          </span>
         </motion.h1>
 
         <motion.div
@@ -77,7 +80,7 @@ export function Hero() {
                   exit={{ opacity: 0, transition: { duration: 0.4, delay: 0.6 } }}
                   transition={{ duration: 0.9, ease: EASE }}
                 >
-                  <Image src={current.image} alt="" fill sizes="(max-width: 1024px) 90vw, 460px" priority={index === 0} />
+                  <Image src={current.image} alt={`${current.title} website designed and built by Tecton Solutions`} fill sizes="(max-width: 1024px) 90vw, 460px" preload={index === 0} fetchPriority={index === 0 ? "high" : undefined} />
                 </motion.div>
               </AnimatePresence>
             </div>

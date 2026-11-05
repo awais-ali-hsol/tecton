@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { contact } from "@/lib/data";
 import { Check, Copy, Plus } from "@/components/ui/icons";
@@ -59,22 +59,20 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 <span className="faq__icon" aria-hidden><Plus /></span>
               </button>
             </h3>
-            <AnimatePresence initial={false}>
-              {expanded && (
-                <motion.div
-                  id={`faq-a-${i}`}
-                  role="region"
-                  aria-labelledby={`faq-q-${i}`}
-                  className="faq__a"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.5, ease: EASE }}
-                >
-                  <p>{item.a}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Every answer is in the HTML; closed ones are collapsed, not unmounted, so crawlers can read them. */}
+            <motion.div
+              id={`faq-a-${i}`}
+              role="region"
+              aria-labelledby={`faq-q-${i}`}
+              aria-hidden={!expanded}
+              inert={!expanded}
+              className="faq__a"
+              initial={false}
+              animate={expanded ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+              transition={{ duration: 0.5, ease: EASE }}
+            >
+              <p>{item.a}</p>
+            </motion.div>
           </div>
         );
       })}

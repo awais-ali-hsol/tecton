@@ -11,7 +11,7 @@ import { EASE, useLocalTime } from "./hooks";
 
 const NAV = [
   { href: "/work/", label: "Work" },
-  { href: "/#services", label: "Services" },
+  { href: "/services/", label: "Services" },
   { href: "/about/", label: "Studio" },
   // { href: "/#insights", label: "Insights" },
   { href: "/contact/", label: "Contact" },

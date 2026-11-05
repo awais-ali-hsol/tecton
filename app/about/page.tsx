@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { absoluteUrl, jsonLdScript, ORG_ID, pageMetadata, SITE_URL } from "@/lib/seo";
 import Image from "next/image";
 import { team } from "@/lib/data";
 import { Timeline } from "@/components/about/Timeline";
@@ -10,20 +11,12 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 
-export const metadata: Metadata = {
-  title: "Studio",
-  description: "An independent product studio in Lahore, Pakistan. Ten years of designing and engineering software people rely on.",
-  alternates: { canonical: "https://tectonsolutions.com/about" },
-  openGraph: {
-    title: "Studio — Tecton Solutions",
-    description: "An independent product studio in Lahore, Pakistan. Ten years of designing and engineering software people rely on.",
-    url: "https://tectonsolutions.com/about",
-  },
-  twitter: {
-    title: "Studio — Tecton Solutions",
-    description: "An independent product studio in Lahore, Pakistan. Ten years of designing and engineering software people rely on.",
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About Tecton Solutions | Software Studio in Lahore, Pakistan",
+  description:
+    "Software studio in Lahore, Pakistan, founded in 2025 by engineers with 10+ years of combined experience building web, mobile and SaaS products.",
+  path: "/about/",
+});
 
 const values = [
   { title: "Clarity before code", body: "We invest in understanding the problem before writing a line. Clear thinking is the cheapest way to build better software." },
@@ -38,19 +31,33 @@ const milestones = [
 ];
 
 const stats = [
-  { to: 2, suffix: "+", label: "Years independent" },
+  { to: 10, suffix: "+", label: "Years of combined experience" },
   { to: 50, suffix: "+", label: "Products launched" },
   { to: 10, suffix: "", label: "Designers & engineers" },
   { to: 4, suffix: "", label: "Countries served" },
 ];
 
+const teamJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": team.map((m) => ({
+    "@type": "Person",
+    name: m.name,
+    jobTitle: m.role,
+    image: `${SITE_URL}${m.avatar}`,
+    worksFor: { "@id": ORG_ID },
+    url: absoluteUrl("/about/"),
+  })),
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(teamJsonLd)} />
       <SiteHeader />
       <main id="main">
         <PageHero
           lines={["Built to", <em key="l">last.</em>]}
+          keyword="About Tecton Solutions, software studio in Lahore"
           introAside
           intro={
             <p>

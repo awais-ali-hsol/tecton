@@ -5,6 +5,7 @@ export function PageHero({
   kicker,
   meta,
   lines,
+  keyword,
   intro,
   introAside,
   children,
@@ -12,6 +13,8 @@ export function PageHero({
   kicker?: string;
   meta?: string;
   lines: ReactNode[];
+  /** Plain search phrase shown under the display lines, inside the H1. */
+  keyword?: string;
   intro?: ReactNode;
   /** Sets the intro beside the title on wide screens, for short titles. */
   introAside?: boolean;
@@ -21,6 +24,12 @@ export function PageHero({
     <>
       <h1 className="phero__title">
         <MaskLines trigger="mount" delay={0.1} lines={lines} />
+        {keyword && (
+          <>
+            {" "}
+            <span className="h1-keyword fade-up" style={{ animationDelay: "0.3s" }}>{keyword}</span>
+          </>
+        )}
       </h1>
       {intro && (
         <div className="phero__intro fade-up" style={{ animationDelay: "0.4s" }}>

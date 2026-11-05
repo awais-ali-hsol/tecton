@@ -1,14 +1,20 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/data";
+import { absoluteUrl } from "@/lib/seo";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
+// Trailing-slash URLs so every entry returns 200 and matches its canonical.
+// No lastmod: a build-time timestamp on every page is a date Google learns to ignore.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: "https://tectonsolutions.com", lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
-    { url: "https://tectonsolutions.com/about", lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: "https://tectonsolutions.com/work", lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: "https://tectonsolutions.com/contact", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    ...services.map((service) => ({ url: `https://tectonsolutions.com/services/${service.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 })),
+  const paths = [
+    "/",
+    "/services/",
+    ...services.map((s) => `/services/${s.slug}/`),
+    "/work/",
+    "/about/",
+    "/contact/",
+    "/privacy/",
   ];
+  return paths.map((path) => ({ url: absoluteUrl(path) }));
 }
